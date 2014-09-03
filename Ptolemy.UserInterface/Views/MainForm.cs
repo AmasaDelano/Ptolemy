@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using Ptolemy.UserInterface.Controllers;
 using Ptolemy.UserInterface.Models;
 using Ptolemy.SolarSystem;
+using Ptolemy.UserInterface.ViewModels;
 
 namespace Ptolemy.UserInterface.Views
 {
@@ -51,10 +52,12 @@ namespace Ptolemy.UserInterface.Views
             foreach (PlanetEnum planetEnum in SelectList.Of<PlanetEnum>())
             {
                 PlanetController planetController = new PlanetController(planetEnum);
+                string planetName = planetController.GetPlanetInfo().Name;
+
                 // Create empty tab page
                 TabPage planetDisplayTabPage = new TabPage
                 {
-                    Text = planetController.GetName()
+                    Text = planetName
                 };
                 // Add custom control to page
                 planetDisplayTabPage.Controls.Add(new PlanetDisplayTab(planetController));

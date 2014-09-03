@@ -1,5 +1,4 @@
 ﻿using System.Drawing;
-using System.Linq;
 using Ptolemy.SolarSystem;
 using Ptolemy.UserInterface.Models;
 using Ptolemy.UserInterface.ViewModels;
@@ -63,11 +62,6 @@ namespace Ptolemy.UserInterface.Controllers
         public void SetPlanetColor(Color planetColor)
         {
             _planetModel.SetPlanetColor(planetColor);
-        }
-
-        public string GetName()
-        {
-            return _planetModel.GetName();
         }
 
         #endregion

@@ -30,11 +30,11 @@ namespace Ptolemy.UserInterface.Views
 
         private void PlanetDisplayTab_Load(object sender, System.EventArgs e)
         {
-            // Append the planet's name where applicable
-            _showAllCheckbox.Text += _planetController.GetName();
-
             // Get display info
             PlanetViewModel planetInfo = _planetController.GetPlanetInfo();
+
+            // Append the planet's name where applicable
+            _showAllCheckbox.Text += planetInfo.Name;
 
             // Set initial control values
             _showAllCheckbox.Checked = planetInfo.ShowAll;

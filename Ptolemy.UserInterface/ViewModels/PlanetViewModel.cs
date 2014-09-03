@@ -23,6 +23,11 @@ namespace Ptolemy.UserInterface.ViewModels
 
         #region Public Interface
 
+        public string Name
+        {
+            get { return _planetModel.GetName(); }
+        }
+
         public bool ShowAll
         {
             get { return _planetModel.GetShowAll(); }
@@ -92,6 +97,7 @@ namespace Ptolemy.UserInterface.ViewModels
         {
             get { return (int)_planetPositionData.RadiusOfEpicycle; }
         }
+
         #endregion
     }
 }
