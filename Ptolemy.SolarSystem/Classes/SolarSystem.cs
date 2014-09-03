@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Windows;
 
 namespace Ptolemy.SolarSystem
 {
@@ -72,9 +71,9 @@ namespace Ptolemy.SolarSystem
                 returnsInMeanOrbit: 1,
                 returnsInAnomaly: 1,
                 returnsOfMeanSun: 1,
-                epochApogee: ZodiacSignEnum.Gemini.GetDegrees() + PtolemyMath.GetDecimalFromHexadecimal(5, 30), // H256, H257
-                epochMean: ZodiacSignEnum.Pisces.GetDegrees() + PtolemyMath.GetDecimalFromHexadecimal(0, 45), // H263
-                epochAnomaly: ZodiacSignEnum.Pisces.GetDegrees() + PtolemyMath.GetDecimalFromHexadecimal(3, 8), // H263
+                epochApogee: (int) ZodiacSign.Gemini + PtolemyMath.GetDecimalFromHexadecimal(5, 30), // H256, H257
+                epochMean: (int) ZodiacSign.Pisces + PtolemyMath.GetDecimalFromHexadecimal(0, 45), // H263
+                epochAnomaly: (int) ZodiacSign.Pisces + PtolemyMath.GetDecimalFromHexadecimal(3, 8), // H263
                 usesEquant: false
                 );
         }
@@ -86,9 +85,9 @@ namespace Ptolemy.SolarSystem
                 returnsInMeanOrbit: 1,
                 returnsInAnomaly: 1,
                 returnsOfMeanSun: 1,
-                epochApogee: ZodiacSignEnum.Gemini.GetDegrees() + PtolemyMath.GetDecimalFromHexadecimal(5, 30), // H256, H257
-                epochMean: ZodiacSignEnum.Pisces.GetDegrees() + PtolemyMath.GetDecimalFromHexadecimal(0, 45), // H263
-                epochAnomaly: ZodiacSignEnum.Pisces.GetDegrees() + PtolemyMath.GetDecimalFromHexadecimal(3, 8), // H263
+                epochApogee: (int) ZodiacSign.Gemini + PtolemyMath.GetDecimalFromHexadecimal(5, 30), // H256, H257
+                epochMean: (int) ZodiacSign.Pisces + PtolemyMath.GetDecimalFromHexadecimal(0, 45), // H263
+                epochAnomaly: (int) ZodiacSign.Pisces + PtolemyMath.GetDecimalFromHexadecimal(3, 8), // H263
                 usesEquant: false
                 );
         }
@@ -100,8 +99,8 @@ namespace Ptolemy.SolarSystem
                 returnsInMeanOrbit: 8 - (2.25 / PtolemyMath.DegreesInCircle),
                 returnsInAnomaly: 5, // H215: 5 epicyclic rotations to 8 mean sun rotations less 2;18 days
                 returnsOfMeanSun: PtolemyMath.GetRotationsFromMeanTime(years: 8, days: -2, sixtieths: 18),
-                epochApogee: ZodiacSignEnum.Taurus.GetDegrees() + PtolemyMath.GetDecimalFromHexadecimal(16, 10), // H316 & H250
-                epochMean: ZodiacSignEnum.Pisces.GetDegrees() + PtolemyMath.GetDecimalFromHexadecimal(0, 45),
+                epochApogee: (int) ZodiacSign.Taurus + PtolemyMath.GetDecimalFromHexadecimal(16, 10), // H316 & H250
+                epochMean: (int) ZodiacSign.Pisces + PtolemyMath.GetDecimalFromHexadecimal(0, 45),
                 epochAnomaly: PtolemyMath.GetDecimalFromHexadecimal(71, 7),
                 usesEquant: true
                 );
@@ -114,8 +113,8 @@ namespace Ptolemy.SolarSystem
                 returnsInMeanOrbit: 32 + ((3 + (1/6)) / PtolemyMath.DegreesInCircle),
                 returnsInAnomaly: 37,
                 returnsOfMeanSun: PtolemyMath.GetRotationsFromMeanTime(years: 79, days: 3, sixtieths: 13), // H215: 37 returns in anomaly to 32 plus 3 1/6 degrees mean returns to 79 years plus 3;13 days 
-                epochApogee: ZodiacSignEnum.Cancer.GetDegrees() + PtolemyMath.GetDecimalFromHexadecimal(16, 40), // H250
-                epochMean: ZodiacSignEnum.Aries.GetDegrees() + PtolemyMath.GetDecimalFromHexadecimal(3, 32),
+                epochApogee: (int) ZodiacSign.Cancer + PtolemyMath.GetDecimalFromHexadecimal(16, 40), // H250
+                epochMean: (int) ZodiacSign.Aries + PtolemyMath.GetDecimalFromHexadecimal(3, 32),
                 epochAnomaly: PtolemyMath.GetDecimalFromHexadecimal(327, 13),
                 usesEquant: true
                 );
@@ -128,8 +127,8 @@ namespace Ptolemy.SolarSystem
                 returnsInMeanOrbit: 2 + ((1 + (43/60)) / PtolemyMath.DegreesInCircle), // H215
                 returnsInAnomaly: 57, // H215: 57 returns in anomaly to 
                 returnsOfMeanSun: PtolemyMath.GetRotationsFromMeanTime(years: 59, days: 1, sixtieths: 45),  // H215
-                epochApogee: ZodiacSignEnum.Scorpio.GetDegrees() + PtolemyMath.GetDecimalFromHexadecimal(14, 10), // H250
-                epochMean: ZodiacSignEnum.Libra.GetDegrees() + PtolemyMath.GetDecimalFromHexadecimal(4, 41),
+                epochApogee: (int) ZodiacSign.Scorpio + PtolemyMath.GetDecimalFromHexadecimal(14, 10), // H250
+                epochMean: (int) ZodiacSign.Libra + PtolemyMath.GetDecimalFromHexadecimal(4, 41),
                 epochAnomaly: PtolemyMath.GetDecimalFromHexadecimal(34, 2),
                 usesEquant: true
                 );
@@ -142,8 +141,8 @@ namespace Ptolemy.SolarSystem
                 returnsInMeanOrbit: 6 - ((4 + (1/6)) / PtolemyMath.DegreesInCircle), // H215
                 returnsInAnomaly: 65, // H215: 65 returns in anomaly to 
                 returnsOfMeanSun: PtolemyMath.GetRotationsFromMeanTime(years: 71, days: -4, sixtieths: 6), // H215
-                epochApogee: ZodiacSignEnum.Virgo.GetDegrees() + PtolemyMath.GetDecimalFromHexadecimal(2, 9), // H250
-                epochMean: ZodiacSignEnum.Libra.GetDegrees() + PtolemyMath.GetDecimalFromHexadecimal(4, 41),
+                epochApogee: (int) ZodiacSign.Virgo + PtolemyMath.GetDecimalFromHexadecimal(2, 9), // H250
+                epochMean: (int) ZodiacSign.Libra + PtolemyMath.GetDecimalFromHexadecimal(4, 41),
                 epochAnomaly: PtolemyMath.GetDecimalFromHexadecimal(146, 4),
                 usesEquant: true
                 );

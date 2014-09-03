@@ -75,11 +75,10 @@
     <Compile Include="Classes\PtolemyMath.cs" />
     <Compile Include="Classes\SolarSystem.cs" />
     <Compile Include="Tests\AxisTests.cs" />
-    <Compile Include="Enums\ZodiacSignEnum.cs" />
+    <Compile Include="Enums\ZodiacSign.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\OrbitTests.cs" />
     <Compile Include="Tests\PlanetTests.cs" />
-    <Compile Include="Tests\PrimeMoverTests.cs" />
     <Compile Include="Tests\PtolemyDateTimeTests.cs" />
     <Compile Include="Tests\PtolemyMathTests.cs" />
     <Compile Include="Tests\SolarSystemTests.cs" />
