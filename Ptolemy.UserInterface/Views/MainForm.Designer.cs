@@ -32,27 +32,27 @@ namespace Ptolemy.UserInterface.Views
         {
             this._speedBox = new System.Windows.Forms.GroupBox();
             this._timeLabel = new System.Windows.Forms.Label();
-            this._simulatedUnitsComboBox = new System.Windows.Forms.ComboBox();
-            this._realUnitComboBox = new System.Windows.Forms.ComboBox();
-            this._simulatedStepsNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this._realUnitsComboBox = new System.Windows.Forms.ComboBox();
+            this._simulatedUnitComboBox = new System.Windows.Forms.ComboBox();
             this._realStepsNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this._simulatedStepsNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this._startButton = new System.Windows.Forms.Button();
             this._rightPanel = new System.Windows.Forms.Panel();
             this._planetDisplayTabs = new System.Windows.Forms.TabControl();
             this._heavenPanel = new Ptolemy.UserInterface.Views.HeavenPanel();
             this._speedBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._simulatedStepsNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._realStepsNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._simulatedStepsNumericUpDown)).BeginInit();
             this._rightPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // _speedBox
             // 
             this._speedBox.Controls.Add(this._timeLabel);
-            this._speedBox.Controls.Add(this._simulatedUnitsComboBox);
-            this._speedBox.Controls.Add(this._realUnitComboBox);
-            this._speedBox.Controls.Add(this._simulatedStepsNumericUpDown);
+            this._speedBox.Controls.Add(this._realUnitsComboBox);
+            this._speedBox.Controls.Add(this._simulatedUnitComboBox);
             this._speedBox.Controls.Add(this._realStepsNumericUpDown);
+            this._speedBox.Controls.Add(this._simulatedStepsNumericUpDown);
             this._speedBox.Controls.Add(this._startButton);
             this._speedBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this._speedBox.Location = new System.Drawing.Point(0, 592);
@@ -77,57 +77,32 @@ namespace Ptolemy.UserInterface.Views
             // 
             // _simulatedUnitsComboBox
             // 
-            this._simulatedUnitsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this._simulatedUnitsComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._simulatedUnitsComboBox.FormattingEnabled = true;
-            this._simulatedUnitsComboBox.Location = new System.Drawing.Point(353, 22);
-            this._simulatedUnitsComboBox.Margin = new System.Windows.Forms.Padding(4);
-            this._simulatedUnitsComboBox.Name = "_simulatedUnitsComboBox";
-            this._simulatedUnitsComboBox.Size = new System.Drawing.Size(160, 28);
-            this._simulatedUnitsComboBox.TabIndex = 4;
-            this._simulatedUnitsComboBox.SelectedIndexChanged += new System.EventHandler(this._simulatedUnitsComboBox_SelectedIndexChanged);
+            this._realUnitsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this._realUnitsComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._realUnitsComboBox.FormattingEnabled = true;
+            this._realUnitsComboBox.Location = new System.Drawing.Point(353, 22);
+            this._realUnitsComboBox.Margin = new System.Windows.Forms.Padding(4);
+            this._realUnitsComboBox.Name = "_realUnitsComboBox";
+            this._realUnitsComboBox.Size = new System.Drawing.Size(160, 28);
+            this._realUnitsComboBox.TabIndex = 4;
+            this._realUnitsComboBox.SelectedIndexChanged += new System.EventHandler(this._realUnitsComboBox_SelectedIndexChanged);
             // 
             // _realUnitComboBox
             // 
-            this._realUnitComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this._realUnitComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._realUnitComboBox.FormattingEnabled = true;
-            this._realUnitComboBox.Location = new System.Drawing.Point(107, 22);
-            this._realUnitComboBox.Margin = new System.Windows.Forms.Padding(4);
-            this._realUnitComboBox.Name = "_realUnitComboBox";
-            this._realUnitComboBox.Size = new System.Drawing.Size(123, 28);
-            this._realUnitComboBox.TabIndex = 3;
-            this._realUnitComboBox.SelectedIndexChanged += new System.EventHandler(this._realUnitComboBox_SelectedIndexChanged);
+            this._simulatedUnitComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this._simulatedUnitComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._simulatedUnitComboBox.FormattingEnabled = true;
+            this._simulatedUnitComboBox.Location = new System.Drawing.Point(107, 22);
+            this._simulatedUnitComboBox.Margin = new System.Windows.Forms.Padding(4);
+            this._simulatedUnitComboBox.Name = "_simulatedUnitComboBox";
+            this._simulatedUnitComboBox.Size = new System.Drawing.Size(123, 28);
+            this._simulatedUnitComboBox.TabIndex = 3;
+            this._simulatedUnitComboBox.SelectedIndexChanged += new System.EventHandler(this._simulatedUnitComboBox_SelectedIndexChanged);
             // 
             // _simulatedStepsNumericUpDown
             // 
-            this._simulatedStepsNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._simulatedStepsNumericUpDown.Location = new System.Drawing.Point(272, 23);
-            this._simulatedStepsNumericUpDown.Margin = new System.Windows.Forms.Padding(4);
-            this._simulatedStepsNumericUpDown.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this._simulatedStepsNumericUpDown.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this._simulatedStepsNumericUpDown.Name = "_simulatedStepsNumericUpDown";
-            this._simulatedStepsNumericUpDown.Size = new System.Drawing.Size(73, 26);
-            this._simulatedStepsNumericUpDown.TabIndex = 2;
-            this._simulatedStepsNumericUpDown.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this._simulatedStepsNumericUpDown.ValueChanged += new System.EventHandler(this._simulatedStepsNumericUpDown_ValueChanged);
-            // 
-            // _realStepsNumericUpDown
-            // 
             this._realStepsNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._realStepsNumericUpDown.Location = new System.Drawing.Point(16, 22);
+            this._realStepsNumericUpDown.Location = new System.Drawing.Point(272, 23);
             this._realStepsNumericUpDown.Margin = new System.Windows.Forms.Padding(4);
             this._realStepsNumericUpDown.Maximum = new decimal(new int[] {
             1000,
@@ -140,14 +115,39 @@ namespace Ptolemy.UserInterface.Views
             0,
             0});
             this._realStepsNumericUpDown.Name = "_realStepsNumericUpDown";
-            this._realStepsNumericUpDown.Size = new System.Drawing.Size(83, 26);
-            this._realStepsNumericUpDown.TabIndex = 1;
+            this._realStepsNumericUpDown.Size = new System.Drawing.Size(73, 26);
+            this._realStepsNumericUpDown.TabIndex = 2;
             this._realStepsNumericUpDown.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this._realStepsNumericUpDown.ValueChanged += new System.EventHandler(this._realStepsNumericUpDown_ValueChanged);
+            // 
+            // _realStepsNumericUpDown
+            // 
+            this._simulatedStepsNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._simulatedStepsNumericUpDown.Location = new System.Drawing.Point(16, 22);
+            this._simulatedStepsNumericUpDown.Margin = new System.Windows.Forms.Padding(4);
+            this._simulatedStepsNumericUpDown.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this._simulatedStepsNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this._simulatedStepsNumericUpDown.Name = "_simulatedStepsNumericUpDown";
+            this._simulatedStepsNumericUpDown.Size = new System.Drawing.Size(83, 26);
+            this._simulatedStepsNumericUpDown.TabIndex = 1;
+            this._simulatedStepsNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this._simulatedStepsNumericUpDown.ValueChanged += new System.EventHandler(this._simulatedStepsNumericUpDown_ValueChanged);
             // 
             // _startButton
             // 
@@ -204,8 +204,8 @@ namespace Ptolemy.UserInterface.Views
             this.Load += new System.EventHandler(this.MainForm_Load);
             this._speedBox.ResumeLayout(false);
             this._speedBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._simulatedStepsNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._realStepsNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._simulatedStepsNumericUpDown)).EndInit();
             this._rightPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -217,12 +217,12 @@ namespace Ptolemy.UserInterface.Views
         private GroupBox _speedBox;
         private Panel _rightPanel;
         private TabControl _planetDisplayTabs;
-        private NumericUpDown _simulatedStepsNumericUpDown;
         private NumericUpDown _realStepsNumericUpDown;
+        private NumericUpDown _simulatedStepsNumericUpDown;
         private Button _startButton;
-        private ComboBox _realUnitComboBox;
+        private ComboBox _simulatedUnitComboBox;
         private Label _timeLabel;
-        private ComboBox _simulatedUnitsComboBox;
+        private ComboBox _realUnitsComboBox;
 
     }
 }

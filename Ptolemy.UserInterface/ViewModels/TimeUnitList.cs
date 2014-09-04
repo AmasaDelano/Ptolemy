@@ -6,12 +6,6 @@ namespace Ptolemy.UserInterface.ViewModels
 {
     internal class TimeUnitList : BindingList<TimeUnitItem>
     {
-        #region Member Variables
-
-
-
-        #endregion
-
         #region Constructors
 
         internal TimeUnitList(int quantity)

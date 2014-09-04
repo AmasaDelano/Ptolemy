@@ -44,25 +44,16 @@ namespace Ptolemy.UserInterface.Views
             _startButton.Text = buttonText;
         }
 
-        private void _realUnitComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void _simulatedUnitComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            TimeUnit realUnit = (TimeUnitItem) _realUnitComboBox.SelectedItem;
-            _animationController.SetRealTimeUnit(realUnit);
-        }
-
-        private void _simulatedUnitsComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            TimeUnit simulatedUnit = (TimeUnitItem) _simulatedUnitsComboBox.SelectedItem;
+            TimeUnit simulatedUnit = (TimeUnitItem) _simulatedUnitComboBox.SelectedItem;
             _animationController.SetSimulatedTimeUnit(simulatedUnit);
         }
-        
-        private void _realStepsNumericUpDown_ValueChanged(object sender, EventArgs e)
-        {
-            int realSteps = (int) _realStepsNumericUpDown.Value;
-            _animationController.SetRealTimeSteps(realSteps);
 
-            // Update drop down to pluralized versions, if necessary
-            ((TimeUnitList) _realUnitComboBox.DataSource).UpdateQuantity(realSteps);
+        private void _realUnitsComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TimeUnit realUnit = (TimeUnitItem) _realUnitsComboBox.SelectedItem;
+            _animationController.SetRealTimeUnit(realUnit);
         }
         
         private void _simulatedStepsNumericUpDown_ValueChanged(object sender, EventArgs e)
@@ -71,7 +62,16 @@ namespace Ptolemy.UserInterface.Views
             _animationController.SetSimulatedTimeSteps(simulatedSteps);
 
             // Update drop down to pluralized versions, if necessary
-            ((TimeUnitList) _simulatedUnitsComboBox.DataSource).UpdateQuantity(simulatedSteps);
+            ((TimeUnitList) _simulatedUnitComboBox.DataSource).UpdateQuantity(simulatedSteps);
+        }
+        
+        private void _realStepsNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            int realSteps = (int) _realStepsNumericUpDown.Value;
+            _animationController.SetRealTimeSteps(realSteps);
+
+            // Update drop down to pluralized versions, if necessary
+            ((TimeUnitList) _realUnitsComboBox.DataSource).UpdateQuantity(realSteps);
         }
 
         #endregion
@@ -103,14 +103,14 @@ namespace Ptolemy.UserInterface.Views
             AnimationSpeedViewModel speedInfo = _animationController.GetAnimationSpeedInfo();
 
             // Bind enums to drop downs
-            _realUnitComboBox.DataSource = new TimeUnitList(quantity: speedInfo.RealTimeSteps);
-            _simulatedUnitsComboBox.DataSource = new TimeUnitList(quantity: speedInfo.SimulatedTimeSteps); 
+            _simulatedUnitComboBox.DataSource = new TimeUnitList(quantity: speedInfo.RealTimeSteps);
+            _realUnitsComboBox.DataSource = new TimeUnitList(quantity: speedInfo.SimulatedTimeSteps); 
 
             // Set initial values
-            _realStepsNumericUpDown.Value = speedInfo.RealTimeSteps;
-            _realUnitComboBox.SelectedItem = speedInfo.RealTimeUnit;
-            _simulatedStepsNumericUpDown.Value = speedInfo.SimulatedTimeSteps;
-            _simulatedUnitsComboBox.SelectedItem = speedInfo.SimulatedTimeUnit;
+            _simulatedStepsNumericUpDown.Value = speedInfo.RealTimeSteps;
+            _simulatedUnitComboBox.SelectedItem = speedInfo.RealTimeUnit;
+            _realStepsNumericUpDown.Value = speedInfo.SimulatedTimeSteps;
+            _realUnitsComboBox.SelectedItem = speedInfo.SimulatedTimeUnit;
         }
 
         #endregion
