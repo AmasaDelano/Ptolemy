@@ -39,7 +39,7 @@ namespace Ptolemy.UserInterface.Controllers
 
         public void SetSimulatedTimeUnit(TimeUnit timeUnit)
         {
-            _animationModel.SetRealTimeUnit(timeUnit);
+            _animationModel.SetSimulatedTimeUnit(timeUnit);
         }
 
         public void SetSimulatedTimeSteps(int timeStep)
