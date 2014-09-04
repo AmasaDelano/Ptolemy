@@ -19,6 +19,8 @@ namespace Ptolemy.UserInterface.Models
         private readonly SolarSystem.SolarSystem _solarSystem;
         private readonly Timer _timer;
 
+        private readonly HeavensModel _heavensModel;
+
         /// <summary>
         /// Time as it passes for us.
         /// </summary>
@@ -46,13 +48,13 @@ namespace Ptolemy.UserInterface.Models
             _timer.AutoReset = true;
             _timer.Enabled = false;
             _timer.Elapsed += AdvanceTime;
+
+            _heavensModel = ModelFactory.GetHeavensModel();
         }
 
         #endregion
 
         #region Public Interface
-
-        internal event Action TimeAdvanced;
 
         internal bool IsRunning
         {
@@ -128,10 +130,7 @@ namespace Ptolemy.UserInterface.Models
 
         private void OnTimeAdvanced()
         {
-            if (TimeAdvanced != null)
-            {
-                TimeAdvanced();
-            }
+            _heavensModel.OnHasChanged();
         }
 
         private void AdvanceTime(object state, ElapsedEventArgs e)

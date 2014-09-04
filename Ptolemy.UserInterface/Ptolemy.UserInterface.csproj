@@ -51,6 +51,8 @@
     <Compile Include="ViewModels\AnimationSpeedViewModel.cs" />
     <Compile Include="Models\PlanetDrawingData.cs" />
     <Compile Include="ViewModels\PlanetViewModel.cs" />
+    <Compile Include="ViewModels\TimeUnitItem.cs" />
+    <Compile Include="ViewModels\TimeUnitList.cs" />
     <Compile Include="Views\HeavenPanel.cs">
       <SubType>Component</SubType>
     </Compile>

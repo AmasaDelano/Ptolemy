@@ -31,8 +31,6 @@ namespace Ptolemy.UserInterface.Views
             // Attach events
             SizeChanged += OnSizeChangedUpdateCenter;
             _heavensController.RegisterHasChangedEvent(this.Invalidate);
-            AnimationController animationController = new AnimationController();
-            animationController.RegisterTimeAdvanced(this.Invalidate);
         }
         #endregion
 

@@ -1,4 +1,5 @@
-﻿using Ptolemy.UserInterface.Models;
+﻿using Ptolemy.UserInterface.Enums;
+using Ptolemy.UserInterface.Models;
 
 namespace Ptolemy.UserInterface.Controllers
 {
@@ -15,16 +16,36 @@ namespace Ptolemy.UserInterface.Controllers
         public AnimationController()
         {
             _animationModel = ModelFactory.GetAnimationModel();
-
-            //_primeMover.SetRealSeconds(1);
-            //_primeMover.SetSimulatedSeconds(60 * 60 * 24 * 10);
-
-            //_primeMover.Start();
         }
 
         #endregion
 
         #region Public Interface
+
+        internal ViewModels.AnimationSpeedViewModel GetAnimationSpeedInfo()
+        {
+            return new ViewModels.AnimationSpeedViewModel(_animationModel);
+        }
+
+        public void SetRealTimeUnit(TimeUnit timeUnit)
+        {
+            _animationModel.SetRealTimeUnit(timeUnit);
+        }
+
+        public void SetRealTimeSteps(int timeStep)
+        {
+            _animationModel.SetRealTimeSteps(timeStep);
+        }
+
+        public void SetSimulatedTimeUnit(TimeUnit timeUnit)
+        {
+            _animationModel.SetRealTimeUnit(timeUnit);
+        }
+
+        public void SetSimulatedTimeSteps(int timeStep)
+        {
+            _animationModel.SetSimulatedTimeSteps(timeStep);
+        }
 
         internal string ToggleStart()
         {
@@ -38,11 +59,6 @@ namespace Ptolemy.UserInterface.Controllers
                 _animationModel.Pause();
                 return "Start";
             }
-        }
-
-        internal void RegisterTimeAdvanced(System.Action action)
-        {
-            _animationModel.TimeAdvanced += action;
         }
 
         #endregion

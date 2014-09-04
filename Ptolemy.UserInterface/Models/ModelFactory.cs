@@ -36,7 +36,7 @@ namespace Ptolemy.UserInterface
 
         public static PlanetModel GetPlanetModel(PlanetEnum planetEnum)
         {
-            if (PlanetModels.ContainsKey(planetEnum))
+            if (PlanetModels.ContainsKey(planetEnum) && PlanetModels[planetEnum] != null)
             {
                 return PlanetModels[planetEnum];
             }

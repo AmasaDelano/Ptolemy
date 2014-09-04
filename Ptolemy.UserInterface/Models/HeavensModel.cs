@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using Ptolemy.SolarSystem;
+﻿using System.Drawing;
 
 namespace Ptolemy.UserInterface.Models
 {
@@ -19,6 +16,7 @@ namespace Ptolemy.UserInterface.Models
         internal HeavensModel()
         {
         }
+
         #endregion
 
         #region Public Interface
