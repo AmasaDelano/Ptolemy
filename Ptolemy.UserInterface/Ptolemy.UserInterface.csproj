@@ -43,13 +43,17 @@
     <Compile Include="Controllers\AnimationController.cs" />
     <Compile Include="Controllers\HeavensController.cs" />
     <Compile Include="Controllers\PlanetController.cs" />
-    <Compile Include="Tests\PlanetControllerTests.cs" />
+    <Compile Include="Tests\AnimationControllerTests.cs" />
+    <Compile Include="Tests\HeavensControllerTests.cs" />
     <Compile Include="Models\AnimationModel.cs" />
     <Compile Include="Enums\SelectList.cs" />
     <Compile Include="Models\HeavensModel.cs" />
     <Compile Include="Models\PlanetModel.cs" />
     <Compile Include="Enums\TimeUnit.cs" />
     <Compile Include="Models\ModelFactory.cs" />
+    <Compile Include="Tests\PlanetControllerTests.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="ViewModels\AnimationSpeedViewModel.cs" />
     <Compile Include="Models\PlanetDrawingData.cs" />
     <Compile Include="ViewModels\PlanetViewModel.cs" />
@@ -109,9 +113,7 @@
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\DataSources\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -18,6 +18,11 @@ namespace Ptolemy.UserInterface.Controllers
             _animationModel = ModelFactory.GetAnimationModel();
         }
 
+        public AnimationController(AnimationModel animationModel)
+        {
+            _animationModel = animationModel;
+        }
+
         #endregion
 
         #region Public Interface

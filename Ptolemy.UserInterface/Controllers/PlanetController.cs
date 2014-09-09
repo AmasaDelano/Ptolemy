@@ -20,6 +20,11 @@ namespace Ptolemy.UserInterface.Controllers
             _planetModel = ModelFactory.GetPlanetModel(planetEnum);
         }
 
+        public PlanetController(PlanetModel planetModel)
+        {
+            _planetModel = planetModel;
+        }
+
         #endregion
 
         #region Public Interface

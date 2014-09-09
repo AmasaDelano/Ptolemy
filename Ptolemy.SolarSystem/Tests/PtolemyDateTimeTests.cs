@@ -12,13 +12,13 @@ namespace Ptolemy.SolarSystem.Tests
             // ARRANGE
             PtolemyDateTime ptolemyNow = PtolemyDateTime.Now;
             DateTime now = DateTime.Now;
-            long ticksInOneMillisecond = new TimeSpan(0, 0, 0, 0, milliseconds: 1).Ticks;
+            long ticksInFiveMilliseconds = new TimeSpan(0, 0, 0, 0, milliseconds: 5).Ticks;
 
             // ACT
             long ptolemyTicks = ptolemyNow.Ticks;
 
             // ASSERT
-            Assert.IsTrue(Math.Abs(now.Ticks - ptolemyTicks) < ticksInOneMillisecond);
+            Assert.IsTrue(Math.Abs(now.Ticks - ptolemyTicks) < ticksInFiveMilliseconds);
         }
 
         [TestMethod]

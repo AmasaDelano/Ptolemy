@@ -1,8 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
+﻿using System.Drawing;
 using Ptolemy.UserInterface.Models;
-using Ptolemy.SolarSystem;
 
 namespace Ptolemy.UserInterface.Controllers
 {
@@ -15,13 +12,21 @@ namespace Ptolemy.UserInterface.Controllers
         #endregion
 
         #region Constructors
+
         public HeavensController()
         {
             _heavensModel = ModelFactory.GetHeavensModel();
         }
+
+        public HeavensController(HeavensModel heavensModel)
+        {
+            _heavensModel = heavensModel;
+        }
+
         #endregion
 
         #region Public Interface
+
         internal void SetEarthCenter(int x, int y)
         {
             _heavensModel.SetEarthCenter(new Point(x: x, y: y));
@@ -36,6 +41,7 @@ namespace Ptolemy.UserInterface.Controllers
         {
             _heavensModel.HasChanged += action;
         }
+
         #endregion
     }
 }
