@@ -1,7 +1,7 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 using Ptolemy.UserInterface.Controllers;
-using Ptolemy.UserInterface.Models;
 using Ptolemy.SolarSystem;
 using Ptolemy.UserInterface.ViewModels;
 using Ptolemy.UserInterface.Enums;
@@ -80,21 +80,24 @@ namespace Ptolemy.UserInterface.Views
 
         private void SetUpPlanetDisplayTabs()
         {
-            foreach (PlanetEnum planetEnum in SelectList.Of<PlanetEnum>())
-            {
-                PlanetController planetController = new PlanetController(planetEnum);
-                string planetName = planetController.GetPlanetInfo().Name;
-
-                // Create empty tab page
-                TabPage planetDisplayTabPage = new TabPage
+            TabPage[] planetTabPages = SelectList.Of<PlanetEnum>()
+                .Select(e => new PlanetController(e))
+                .Select(e =>
                 {
-                    Text = planetName
-                };
-                // Add custom control to page
-                planetDisplayTabPage.Controls.Add(new PlanetDisplayTab(planetController));
-                // Add tab page to tab control
-                _planetDisplayTabs.TabPages.Add(planetDisplayTabPage);
-            }
+                    // Create empty tab page
+                    TabPage tabPage = new TabPage
+                    {
+                        Text = e.GetPlanetInfo().Name
+                    };
+
+                    // Add custom control to page
+                    tabPage.Controls.Add(new PlanetDisplayTab(e));
+
+                    return tabPage;
+                })
+                .ToArray();
+
+            _planetDisplayTabs.TabPages.AddRange(planetTabPages);
         }
 
         private void SetUpAnimationControls()
@@ -102,15 +105,19 @@ namespace Ptolemy.UserInterface.Views
             // Get speed info
             AnimationSpeedViewModel speedInfo = _animationController.GetAnimationSpeedInfo();
 
+            // Hacky solution - not happy with it, but it preserves the values of speed info
+            TimeUnit realTimeUnit = speedInfo.RealTimeUnit;
+            TimeUnit simulatedTimeUnit = speedInfo.SimulatedTimeUnit;
+
             // Bind enums to drop downs
             _simulatedUnitComboBox.DataSource = new TimeUnitList(quantity: speedInfo.RealTimeSteps);
-            _realUnitsComboBox.DataSource = new TimeUnitList(quantity: speedInfo.SimulatedTimeSteps); 
+            _realUnitsComboBox.DataSource = new TimeUnitList(quantity: speedInfo.SimulatedTimeSteps);
 
             // Set initial values
             _simulatedStepsNumericUpDown.Value = speedInfo.RealTimeSteps;
-            _simulatedUnitComboBox.SelectedItem = speedInfo.RealTimeUnit;
+            _simulatedUnitComboBox.SelectedItem = simulatedTimeUnit;
             _realStepsNumericUpDown.Value = speedInfo.SimulatedTimeSteps;
-            _realUnitsComboBox.SelectedItem = speedInfo.SimulatedTimeUnit;
+            _realUnitsComboBox.SelectedItem = realTimeUnit;
         }
 
         #endregion

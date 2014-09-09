@@ -30,10 +30,12 @@ namespace Ptolemy.UserInterface.Views
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this._speedBox = new System.Windows.Forms.GroupBox();
             this._timeLabel = new System.Windows.Forms.Label();
             this._realUnitsComboBox = new System.Windows.Forms.ComboBox();
             this._simulatedUnitComboBox = new System.Windows.Forms.ComboBox();
+            this.timeUnitListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._realStepsNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this._simulatedStepsNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this._startButton = new System.Windows.Forms.Button();
@@ -41,6 +43,7 @@ namespace Ptolemy.UserInterface.Views
             this._planetDisplayTabs = new System.Windows.Forms.TabControl();
             this._heavenPanel = new Ptolemy.UserInterface.Views.HeavenPanel();
             this._speedBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.timeUnitListBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._realStepsNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._simulatedStepsNumericUpDown)).BeginInit();
             this._rightPanel.SuspendLayout();
@@ -75,7 +78,7 @@ namespace Ptolemy.UserInterface.Views
             this._timeLabel.TabIndex = 5;
             this._timeLabel.Text = "in";
             // 
-            // _simulatedUnitsComboBox
+            // _realUnitsComboBox
             // 
             this._realUnitsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._realUnitsComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -87,7 +90,7 @@ namespace Ptolemy.UserInterface.Views
             this._realUnitsComboBox.TabIndex = 4;
             this._realUnitsComboBox.SelectedIndexChanged += new System.EventHandler(this._realUnitsComboBox_SelectedIndexChanged);
             // 
-            // _realUnitComboBox
+            // _simulatedUnitComboBox
             // 
             this._simulatedUnitComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._simulatedUnitComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -99,7 +102,11 @@ namespace Ptolemy.UserInterface.Views
             this._simulatedUnitComboBox.TabIndex = 3;
             this._simulatedUnitComboBox.SelectedIndexChanged += new System.EventHandler(this._simulatedUnitComboBox_SelectedIndexChanged);
             // 
-            // _simulatedStepsNumericUpDown
+            // timeUnitListBindingSource
+            // 
+            this.timeUnitListBindingSource.DataSource = typeof(Ptolemy.UserInterface.ViewModels.TimeUnitList);
+            // 
+            // _realStepsNumericUpDown
             // 
             this._realStepsNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._realStepsNumericUpDown.Location = new System.Drawing.Point(272, 23);
@@ -124,7 +131,7 @@ namespace Ptolemy.UserInterface.Views
             0});
             this._realStepsNumericUpDown.ValueChanged += new System.EventHandler(this._realStepsNumericUpDown_ValueChanged);
             // 
-            // _realStepsNumericUpDown
+            // _simulatedStepsNumericUpDown
             // 
             this._simulatedStepsNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._simulatedStepsNumericUpDown.Location = new System.Drawing.Point(16, 22);
@@ -175,9 +182,10 @@ namespace Ptolemy.UserInterface.Views
             // 
             this._planetDisplayTabs.Location = new System.Drawing.Point(4, 4);
             this._planetDisplayTabs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this._planetDisplayTabs.Multiline = true;
             this._planetDisplayTabs.Name = "_planetDisplayTabs";
             this._planetDisplayTabs.SelectedIndex = 0;
-            this._planetDisplayTabs.Size = new System.Drawing.Size(196, 266);
+            this._planetDisplayTabs.Size = new System.Drawing.Size(196, 361);
             this._planetDisplayTabs.TabIndex = 0;
             // 
             // _heavenPanel
@@ -204,6 +212,7 @@ namespace Ptolemy.UserInterface.Views
             this.Load += new System.EventHandler(this.MainForm_Load);
             this._speedBox.ResumeLayout(false);
             this._speedBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.timeUnitListBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._realStepsNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._simulatedStepsNumericUpDown)).EndInit();
             this._rightPanel.ResumeLayout(false);
@@ -223,6 +232,7 @@ namespace Ptolemy.UserInterface.Views
         private ComboBox _simulatedUnitComboBox;
         private Label _timeLabel;
         private ComboBox _realUnitsComboBox;
+        private BindingSource timeUnitListBindingSource;
 
     }
 }

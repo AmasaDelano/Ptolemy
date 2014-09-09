@@ -1,4 +1,5 @@
-﻿using Ptolemy.UserInterface.Enums;
+﻿using System;
+using Ptolemy.UserInterface.Enums;
 
 namespace Ptolemy.UserInterface.ViewModels
 {
@@ -40,6 +41,18 @@ namespace Ptolemy.UserInterface.ViewModels
         public override string ToString()
         {
             return Name;
+        }
+
+        public override bool Equals(object obj)
+        {
+            Type type = obj.GetType();
+
+            if (type == typeof (TimeUnit))
+            {
+                return (((TimeUnit) obj) == _timeUnit);
+            }
+
+            return base.Equals(obj);
         }
 
         #endregion

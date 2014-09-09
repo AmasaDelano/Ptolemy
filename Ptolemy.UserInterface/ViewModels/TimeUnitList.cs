@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel;
 using Ptolemy.UserInterface.Enums;
-using Ptolemy.UserInterface.Models;
 
 namespace Ptolemy.UserInterface.ViewModels
 {

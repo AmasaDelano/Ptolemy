@@ -4,8 +4,8 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using Ptolemy.UserInterface.Controllers;
+using Ptolemy.UserInterface.Enums;
 using Ptolemy.UserInterface.ViewModels;
-using Ptolemy.UserInterface.Models;
 using Ptolemy.SolarSystem;
 
 namespace Ptolemy.UserInterface.Views
@@ -107,11 +107,11 @@ namespace Ptolemy.UserInterface.Views
         {
             foreach (PlanetViewModel planet in planets.Where(p => p.ShowPlanet))
             {
-                Pen planetPen = new Pen(planet.PlanetColor);
+                Brush planetBrush = new SolidBrush(planet.PlanetColor);
 
-                g.DrawEllipse(pen: planetPen,
+                g.FillEllipse(brush: planetBrush,
                     x: planet.PlanetCenter.X - (planet.PlanetSize / 2),
-                    y: planet.PlanetCenter.X - (planet.PlanetSize / 2),
+                    y: planet.PlanetCenter.Y - (planet.PlanetSize / 2),
                     width: planet.PlanetSize,
                     height: planet.PlanetSize);
             }

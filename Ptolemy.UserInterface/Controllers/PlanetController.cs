@@ -51,7 +51,7 @@ namespace Ptolemy.UserInterface.Controllers
 
         public void SetZoom(double zoom)
         {
-            _planetModel.SetZoom(zoom);
+            _planetModel.SetZoom(zoom / 100);
         }
 
         public void SetPlanetSize(double planetSize)

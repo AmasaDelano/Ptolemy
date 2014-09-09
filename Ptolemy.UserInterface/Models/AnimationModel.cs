@@ -7,11 +7,13 @@ namespace Ptolemy.UserInterface.Models
     internal class AnimationModel : IDisposable
     {
         #region Class Variables
+
         private const int TargetFramesPerSecond = 30;
         private const int MillisecondsInSecond = 1000; // 1 thousand
         private const int TicksInSecond = 10000000; // 10 million
         private const int MillisecondsPerFrame = MillisecondsInSecond / TargetFramesPerSecond;
         private const int TicksPerFrame = TicksInSecond / TargetFramesPerSecond;
+
         #endregion
 
         #region Member Variables

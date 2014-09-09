@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Drawing;
+using System.Windows.Forms;
 using Ptolemy.UserInterface.Controllers;
 using Ptolemy.UserInterface.ViewModels;
 
@@ -40,7 +41,10 @@ namespace Ptolemy.UserInterface.Views
             _showAllCheckbox.Checked = planetInfo.ShowAll;
             _showOrbitsCheckBox.Checked = planetInfo.ShowOrbits;
             _showAxesCheckBox.Checked = planetInfo.ShowAxes;
+            _zoomNumericUpDown.Value = planetInfo.Zoom;
             _showPlanetCheckBox.Checked = planetInfo.ShowPlanet;
+            _planetSizeTrackBar.Value = planetInfo.PlanetSize;
+            _planetColorPictureBox.BackColor = planetInfo.PlanetColor;
 
             // Enable/disable controls
             _displayOptionsGroupBox.Enabled = planetInfo.ShowAll;
@@ -68,10 +72,36 @@ namespace Ptolemy.UserInterface.Views
             _planetController.SetShowPlanet(_showPlanetCheckBox.Checked);
         }
 
+        private void _planetSizeTrackBar_Scroll(object sender, System.EventArgs e)
+        {
+            _planetController.SetPlanetSize(_planetSizeTrackBar.Value);
+        }
+
+        private void _zoomNumericUpDown_ValueChanged(object sender, System.EventArgs e)
+        {
+            _planetController.SetZoom((double) _zoomNumericUpDown.Value);
+        }
+
+        private void _planetColorPictureBox_Click(object sender, System.EventArgs e)
+        {
+            // Show the color dialog
+            _planetColorDialog.ShowDialog();
+            // Set the color
+            this.SetPlanetColor(_planetColorDialog.Color);
+        }
+
         #endregion
 
+        #region Private Helpers
 
+        private void SetPlanetColor(Color color)
+        {
+            // Send a message to the controller
+            _planetController.SetPlanetColor(color);
+            // Update the visual color representation
+            _planetColorPictureBox.BackColor = color;
+        }
 
-        
+        #endregion
     }
 }

@@ -1,6 +1,5 @@
 ﻿using System.Drawing;
 using Ptolemy.SolarSystem;
-using Ptolemy.UserInterface.ViewModels;
 
 namespace Ptolemy.UserInterface.Models
 {
@@ -17,7 +16,7 @@ namespace Ptolemy.UserInterface.Models
         private bool _showAxes = true;
         private bool _showPlanet = true;
         private double _zoom = 1.0;
-        private double _planetSize;
+        private double _planetSize = 10.0;
         private Color _planetColor;
 
         #endregion
@@ -29,8 +28,11 @@ namespace Ptolemy.UserInterface.Models
             _solarSystem = solarSystem;
             _planetEnum = planetEnum;
 
+            _planetColor = this.GetDefaultColor();
+
             _heavensModel = ModelFactory.GetHeavensModel();
         }
+
         #endregion
 
         #region Public Interface
@@ -167,6 +169,27 @@ namespace Ptolemy.UserInterface.Models
         private double CombinedZoom
         {
             get { return _zoom * _heavensModel.GetZoom();  }
+        }
+
+        private Color GetDefaultColor()
+        {
+            switch (_planetEnum)
+            {
+                case PlanetEnum.SunDeferent:
+                    return Color.Yellow;
+                case PlanetEnum.SunEpicycle:
+                    return Color.Yellow;
+                case PlanetEnum.Venus:
+                    return Color.Turquoise;
+                case PlanetEnum.Mars:
+                    return Color.Red;
+                case PlanetEnum.Jupiter:
+                    return Color.Orange;
+                case PlanetEnum.Saturn:
+                    return Color.SteelBlue;
+                default:
+                    return Color.Black;
+            }
         }
 
         private System.Windows.Point AddEarthCenter(System.Windows.Point point)

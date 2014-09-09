@@ -50,7 +50,7 @@ namespace Ptolemy.UserInterface.ViewModels
 
         public int Zoom
         {
-            get { return (int)_planetModel.GetZoom(); }
+            get { return (int)(_planetModel.GetZoom() * 100); }
         }
 
         public int PlanetSize

@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using Ptolemy.SolarSystem;
-using Ptolemy.UserInterface.Models;
 
-namespace Ptolemy.UserInterface
+namespace Ptolemy.UserInterface.Models
 {
     internal static class ModelFactory
     {

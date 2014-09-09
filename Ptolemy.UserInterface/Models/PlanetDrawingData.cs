@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace Ptolemy.UserInterface.ViewModels
+namespace Ptolemy.UserInterface.Models
 {
     internal class PlanetDrawingData
     {
