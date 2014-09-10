@@ -10,11 +10,13 @@ namespace Ptolemy.SolarSystem
     public sealed class PtolemyDateTime
     {
         #region Class Variables
+
         private const int LastYearOfJulianCalendar = 1582;
         private const int MaxYear = 9999;
         private const int MinYear = -9999;
         private const int JulianLeapYearInterval = 4;
         private const int FakeYearZero = MaxYear - (MaxYear % JulianLeapYearInterval);
+
         #endregion
 
         #region Member Variables
@@ -67,11 +69,26 @@ namespace Ptolemy.SolarSystem
         }
         #endregion
 
+        #region Overridden Methods
+
+        public override bool Equals(object obj)
+        {
+            if (obj is PtolemyDateTime)
+            {
+                return ((PtolemyDateTime) obj).Ticks == this.Ticks;
+            }
+
+            return base.Equals(obj);
+        }
+
+        #endregion
+
         #region Public Interface
+
         /// <summary>
         /// H254: Year 1 of Nabonassar, Thoth 1 in the Egyptian calendar, noon (747 BC, Feb 26th at noon)
         /// </summary>
-        internal static PtolemyDateTime TimeOfEpoch
+        public static PtolemyDateTime TimeOfEpoch
         {
             get
             {
@@ -83,8 +100,7 @@ namespace Ptolemy.SolarSystem
                     minute: 0);
             }
         }
-
-
+        
         public static PtolemyDateTime Now
         {
             get
@@ -112,6 +128,7 @@ namespace Ptolemy.SolarSystem
         {
             return new PtolemyDateTime(_ticks + ticks);
         }
+
         #endregion
     }
 }

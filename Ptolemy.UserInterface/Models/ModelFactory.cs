@@ -27,7 +27,7 @@ namespace Ptolemy.UserInterface.Models
         {
             if (_heavensModel == null)
             {
-                _heavensModel = new HeavensModel();
+                _heavensModel = new HeavensModel(ModelFactory.GetSolarSystem());
             }
 
             return _heavensModel;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Ptolemy.SolarSystem;
 using Ptolemy.UserInterface.Controllers;
 using Ptolemy.UserInterface.Models;
 
@@ -13,7 +14,8 @@ namespace Ptolemy.UserInterface.Tests
         public void HeavensController_SetEarthCenter_GetEarthCenterIsSame()
         {
             // ARRANGE
-            HeavensController heavensController = new HeavensController(new HeavensModel());
+            HeavensModel heavensModel = new HeavensModel(new SolarSystem.SolarSystem());
+            HeavensController heavensController = new HeavensController(heavensModel);
             Point earthCenterToSet = new Point(x: 22, y: 476);
 
             // ACT
@@ -27,7 +29,7 @@ namespace Ptolemy.UserInterface.Tests
         public void HeavensController_RegisterHeavensChangedEvent_EventIsTriggeredWhenHeavensChange()
         {
             // ARRANGE
-            HeavensModel heavensModel = new HeavensModel();
+            HeavensModel heavensModel = new HeavensModel(new SolarSystem.SolarSystem());
             HeavensController heavensController = new HeavensController(heavensModel);
 
             // ACT
@@ -44,6 +46,34 @@ namespace Ptolemy.UserInterface.Tests
             }
 
             Assert.Fail();
+        }
+
+        [TestMethod]
+        public void HeavensController_SetTimeToEpoch_TimeIsEpoch()
+        {
+            // ARRANGE
+            HeavensModel heavensModel = new HeavensModel(new SolarSystem.SolarSystem());
+            HeavensController heavensController = new HeavensController(heavensModel);
+
+            // ACT
+            heavensController.SetTimeToEpoch();
+
+            // ASSERT
+            Assert.AreEqual(PtolemyDateTime.TimeOfEpoch, heavensController.GetCurrentTime());
+        }
+
+        [TestMethod]
+        public void HeavensController_SetTimeToNow_TimeIsNow()
+        {
+            // ARRANGE
+            HeavensModel heavensModel = new HeavensModel(new SolarSystem.SolarSystem());
+            HeavensController heavensController = new HeavensController(heavensModel);
+
+            // ACT
+            heavensController.SetTimeToNow();
+
+            // ASSERT
+            Assert.AreEqual(PtolemyDateTime.Now, heavensController.GetCurrentTime());
         }
     }
 }

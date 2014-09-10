@@ -74,6 +74,16 @@ namespace Ptolemy.UserInterface.Views
             ((TimeUnitList) _realUnitsComboBox.DataSource).UpdateQuantity(realSteps);
         }
 
+        private void _goToEpochButton_Click(object sender, EventArgs e)
+        {
+            _heavensController.SetTimeToEpoch();
+        }
+
+        private void _goToNowButton_Click(object sender, EventArgs e)
+        {
+            _heavensController.SetTimeToNow();
+        }
+
         #endregion
 
         #region Private Helpers
