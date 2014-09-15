@@ -45,14 +45,35 @@ namespace Ptolemy.UserInterface.ViewModels
 
         public override bool Equals(object obj)
         {
-            Type type = obj.GetType();
-
-            if (type == typeof (TimeUnit))
+            if (ReferenceEquals(null, obj))
             {
-                return (((TimeUnit) obj) == _timeUnit);
+                return false;
             }
 
-            return base.Equals(obj);
+            if (ReferenceEquals(this, obj))
+            {
+                return true;
+            }
+
+            if (obj.GetType() != this.GetType())
+            {
+                return false;
+            }
+
+            return Equals((TimeUnitItem) obj);
+        }
+
+        protected bool Equals(TimeUnitItem other)
+        {
+            return _timeUnit == other._timeUnit;
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                return ((int) _timeUnit * 397);
+            }
         }
 
         #endregion
