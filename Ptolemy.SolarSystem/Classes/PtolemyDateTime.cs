@@ -73,12 +73,32 @@ namespace Ptolemy.SolarSystem
 
         public override bool Equals(object obj)
         {
-            if (obj is PtolemyDateTime)
+            if (ReferenceEquals(null, obj))
             {
-                return ((PtolemyDateTime) obj).Ticks == this.Ticks;
+                return false;
             }
 
-            return base.Equals(obj);
+            if (ReferenceEquals(this, obj))
+            {
+                return true;
+            }
+
+            if (obj.GetType() != this.GetType())
+            {
+                return false;
+            }
+
+            return this.Equals((PtolemyDateTime) obj);
+        }
+
+        private bool Equals(PtolemyDateTime other)
+        {
+            return _ticks == other._ticks;
+        }
+
+        public override int GetHashCode()
+        {
+            return _ticks.GetHashCode();
         }
 
         #endregion
