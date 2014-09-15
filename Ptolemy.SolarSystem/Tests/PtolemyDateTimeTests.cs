@@ -1,12 +1,12 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
+using NUnit.Framework;
 
 namespace Ptolemy.SolarSystem.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class PtolemyDateTimeTests
     {
-        [TestMethod]
+        [Test]
         public void PtolemyDateTimeNow_GetTicksOfNowProperty_TicksAreEqualToDateTimeNowTicks()
         {
             // ARRANGE
@@ -21,7 +21,7 @@ namespace Ptolemy.SolarSystem.Tests
             Assert.IsTrue(Math.Abs(now.Ticks - ptolemyTicks) < ticksInFiveMilliseconds);
         }
 
-        [TestMethod]
+        [Test]
         public void PtolemyDateTimeConstructor_GetTicksOfAdDate_TicksAreEqualToSameDateInDateTime()
         {
             // ARRANGE
@@ -35,7 +35,7 @@ namespace Ptolemy.SolarSystem.Tests
             Assert.AreEqual(dateTime.Ticks, ptolemyTicks);
         }
 
-        [TestMethod]
+        [Test]
         public void PtolemyDateTimeTicks_GetTicksOfAdDate_TicksArePositive()
         {
             // ARRANGE
@@ -48,7 +48,7 @@ namespace Ptolemy.SolarSystem.Tests
             Assert.IsTrue(ptolemyTicks > 0);
         }
 
-        [TestMethod]
+        [Test]
         public void PtolemyDateTimeTicks_GetTicksOfBcDate_TicksAreNegative()
         {
             // ARRANGE
@@ -61,7 +61,7 @@ namespace Ptolemy.SolarSystem.Tests
             Assert.IsTrue(ptolemyTicks < 0);
         }
 
-        [TestMethod]
+        [Test]
         public void PtolemyDateTimeAddTicks_AddPositiveTicksToAdDate_TicksIncreases()
         {
             // ARRANGE
@@ -75,7 +75,7 @@ namespace Ptolemy.SolarSystem.Tests
             Assert.AreEqual(newDateTime.Ticks, originalTicks + 10);
         }
 
-        [TestMethod]
+        [Test]
         public void PtolemyDateTimeAddTicks_AddPositiveTicksToBcDate_TicksIncreases()
         {
             // ARRANGE
@@ -89,7 +89,7 @@ namespace Ptolemy.SolarSystem.Tests
             Assert.AreEqual(newDateTime.Ticks, originalTicks + 10);
         }
 
-        [TestMethod]
+        [Test]
         public void PtolemyDateTimeAddTicks_AddNegativeTicksToAdDate_TicksDecreases()
         {
             // ARRANGE
@@ -103,7 +103,7 @@ namespace Ptolemy.SolarSystem.Tests
             Assert.AreEqual(newDateTime.Ticks, originalTicks - 10);
         }
 
-        [TestMethod]
+        [Test]
         public void PtolemyDateTimeAddTicks_AddNegativeTicksToBcDate_TicksDecreases()
         {
             // ARRANGE
@@ -117,7 +117,7 @@ namespace Ptolemy.SolarSystem.Tests
             Assert.AreEqual(newDateTime.Ticks, originalTicks - 10);
         }
 
-        [TestMethod]
+        [Test]
         public void PtolemyDateTimeTicks_AddTicksFromBcToAd_TicksArePositive()
         {
             // ARRANGE
@@ -131,7 +131,7 @@ namespace Ptolemy.SolarSystem.Tests
             Assert.IsTrue(ptolemyAd.Ticks > 0);
         }
 
-        [TestMethod]
+        [Test]
         public void PtolemyDateTimeTicks_SubtractTicksFromAdToBc_TicksAreNegative()
         {
             // ARRANGE
@@ -145,7 +145,7 @@ namespace Ptolemy.SolarSystem.Tests
             Assert.IsTrue(ptolemyBc.Ticks < 0);
         }
 
-        [TestMethod]
+        [Test]
         public void PtolemyDateTimeTicks_AddAndSubtractTicksFromMidPoint_TicksOfDatesAreSymmetrical()
         {
             // ARRANGE
@@ -160,7 +160,7 @@ namespace Ptolemy.SolarSystem.Tests
             Assert.IsTrue(ptolemyBc.Ticks == -ptolemyAd.Ticks);
         }
 
-        [TestMethod]
+        [Test]
         public void PtolemyDateTimeTicks_SubtractDoubleTicksFromAd_TicksForBcDateAreSymmetrical()
         {
             // ARRANGE
@@ -174,7 +174,7 @@ namespace Ptolemy.SolarSystem.Tests
             Assert.IsTrue(ptolemyBc.Ticks == -ptolemyAd.Ticks);
         }
 
-        [TestMethod]
+        [Test]
         public void PtolemyDateTimeTicks_AddDoubleTicksToBc_TicksForAdDateAreSymmetrical()
         {
             // ARRANGE

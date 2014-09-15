@@ -1,13 +1,13 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 using Ptolemy.UserInterface.Controllers;
 using Ptolemy.UserInterface.Enums;
 
 namespace Ptolemy.UserInterface.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class AnimationControllerTests
     {
-        [TestMethod]
+        [Test]
         public void AnimationController_SetRealTimeSteps_GetRealTimeStepsIsSame()
         {
             // ARRANGE
@@ -21,7 +21,7 @@ namespace Ptolemy.UserInterface.Tests
             Assert.AreEqual(realTimeSteps, animationController.GetAnimationSpeedInfo().RealTimeSteps);
         }
 
-        [TestMethod]
+        [Test]
         public void AnimationController_SetRealTimeUnits_GetRealTimeUnitsIsSame()
         {
             // ARRANGE
@@ -35,7 +35,7 @@ namespace Ptolemy.UserInterface.Tests
             Assert.AreEqual(realTimeUnit, animationController.GetAnimationSpeedInfo().RealTimeUnit);
         }
 
-        [TestMethod]
+        [Test]
         public void AnimationController_SetSimulatedTimeSteps_GetSimulatedTimeStepsIsSame()
         {
             // ARRANGE
@@ -49,7 +49,7 @@ namespace Ptolemy.UserInterface.Tests
             Assert.AreEqual(simulatedTimeSteps, animationController.GetAnimationSpeedInfo().SimulatedTimeSteps);
         }
 
-        [TestMethod]
+        [Test]
         public void AnimationController_SetSimulatedTimeUnits_GetSimulatedTimeUnitsIsSame()
         {
             // ARRANGE

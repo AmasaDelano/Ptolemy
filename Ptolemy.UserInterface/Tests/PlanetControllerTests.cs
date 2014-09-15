@@ -1,15 +1,15 @@
 ﻿using System.Drawing;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using Ptolemy.SolarSystem;
 using Ptolemy.UserInterface.Controllers;
 using Ptolemy.UserInterface.Models;
 
 namespace Ptolemy.UserInterface.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class PlanetControllerTests
     {
-        [TestMethod]
+        [Test]
         public void PlanetController_SetColor_GetColorIsSameColor()
         {
             // ARRANGE
@@ -24,7 +24,7 @@ namespace Ptolemy.UserInterface.Tests
             Assert.AreEqual(colorToSet, planetController.GetPlanetInfo().PlanetColor);
         }
 
-        [TestMethod]
+        [Test]
         public void PlanetController_SetZoom_GetZoomIsSameZoom()
         {
             // ARRANGE
@@ -39,7 +39,7 @@ namespace Ptolemy.UserInterface.Tests
             Assert.AreEqual(zoomToSet, planetController.GetPlanetInfo().Zoom);
         }
 
-        [TestMethod]
+        [Test]
         public void PlanetController_SetPlanetSize_GetPlanetSizeIsSamePlanetSize()
         {
             // ARRANGE
@@ -54,7 +54,7 @@ namespace Ptolemy.UserInterface.Tests
             Assert.AreEqual(sizeToSet, planetController.GetPlanetInfo().PlanetSize);
         }
 
-        [TestMethod]
+        [Test]
         public void PlanetController_SetShowAll_GetShowAllIsSameShowAll()
         {
             // ARRANGE
@@ -69,7 +69,7 @@ namespace Ptolemy.UserInterface.Tests
             Assert.AreEqual(showAllToSet, planetController.GetPlanetInfo().ShowAll);
         }
 
-        [TestMethod]
+        [Test]
         public void PlanetController_SetShowOrbits_GetShowOrbitsIsSameShowOrbits()
         {
             // ARRANGE
@@ -84,7 +84,7 @@ namespace Ptolemy.UserInterface.Tests
             Assert.AreEqual(showOrbitsToSet, planetController.GetPlanetInfo().ShowOrbits);
         }
 
-        [TestMethod]
+        [Test]
         public void PlanetController_SetShowAxes_GetShowAxesIsSameShowAxes()
         {
             // ARRANGE
@@ -99,7 +99,7 @@ namespace Ptolemy.UserInterface.Tests
             Assert.AreEqual(showAxesToSet, planetController.GetPlanetInfo().ShowAxes);
         }
 
-        [TestMethod]
+        [Test]
         public void PlanetController_SetShowPlanet_GetShowPlanetIsSameShowShowPlanet()
         {
             // ARRANGE

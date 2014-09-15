@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Drawing;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using Ptolemy.SolarSystem;
 using Ptolemy.UserInterface.Controllers;
 using Ptolemy.UserInterface.Models;
 
 namespace Ptolemy.UserInterface.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class HeavensControllerTests
     {
-        [TestMethod]
+        [Test]
         public void HeavensController_SetEarthCenter_GetEarthCenterIsSame()
         {
             // ARRANGE
@@ -25,7 +25,7 @@ namespace Ptolemy.UserInterface.Tests
             Assert.AreEqual(earthCenterToSet, heavensController.GetEarthCenter());
         }
 
-        [TestMethod]
+        [Test]
         public void HeavensController_RegisterHeavensChangedEvent_EventIsTriggeredWhenHeavensChange()
         {
             // ARRANGE
@@ -36,19 +36,10 @@ namespace Ptolemy.UserInterface.Tests
             heavensController.RegisterHasChangedEvent(() => { throw new Exception(); });
 
             // ASSERT
-            try
-            {
-                heavensModel.OnHasChanged();
-            }
-            catch (Exception)
-            {
-                return;
-            }
-
-            Assert.Fail();
+            Assert.Catch<Exception>(heavensModel.OnHasChanged);
         }
 
-        [TestMethod]
+        [Test]
         public void HeavensController_SetTimeToEpoch_TimeIsEpoch()
         {
             // ARRANGE
@@ -62,7 +53,7 @@ namespace Ptolemy.UserInterface.Tests
             Assert.AreEqual(PtolemyDateTime.TimeOfEpoch, heavensController.GetCurrentTime());
         }
 
-        [TestMethod]
+        [Test]
         public void HeavensController_SetTimeToNow_TimeIsNow()
         {
             // ARRANGE

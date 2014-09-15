@@ -1,12 +1,12 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Windows;
+﻿using System.Windows;
+using NUnit.Framework;
 
 namespace Ptolemy.SolarSystem.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class OrbitTests
     {
-        [TestMethod]
+        [Test]
         public void OrbitGetPosition_DirectionIsUpAndTimeIsEpoch_PositionIsAboveCenter()
         {
             // ARRANGE
@@ -24,7 +24,7 @@ namespace Ptolemy.SolarSystem.Tests
             Assert.IsTrue((int)position.X == (int)center.X && position.Y > center.Y);
         }
 
-        [TestMethod]
+        [Test]
         public void OrbitGetPosition_DirectionIsDownAndTimeIsEpoch_PositionIsBelowCenter()
         {
             // ARRANGE
@@ -42,7 +42,7 @@ namespace Ptolemy.SolarSystem.Tests
             Assert.IsTrue((int)position.X == (int)center.X && position.Y < center.Y);
         }
 
-        [TestMethod]
+        [Test]
         public void OrbitGetPosition_DirectionIsLeftAndTimeIsEpoch_PositionIsToLeftOfCenter()
         {
             // ARRANGE
@@ -60,7 +60,7 @@ namespace Ptolemy.SolarSystem.Tests
             Assert.IsTrue(position.X < center.X && (int)position.Y == (int)center.Y);
         }
 
-        [TestMethod]
+        [Test]
         public void OrbitGetPosition_DirectionIsRightAndTimeIsEpoch_PositionIsToRightOfCenter()
         {
             // ARRANGE
@@ -78,7 +78,7 @@ namespace Ptolemy.SolarSystem.Tests
             Assert.IsTrue(position.X > center.X && (int)position.Y == (int)center.Y);
         }
 
-        [TestMethod]
+        [Test]
         public void OrbitGetPosition_DirectionIsUpLeftAndTimeIsEpoch_PositionIsAboveAndToLeftOfCenter()
         {
             // ARRANGE
@@ -96,7 +96,7 @@ namespace Ptolemy.SolarSystem.Tests
             Assert.IsTrue(position.X < center.X && position.Y > center.Y);
         }
 
-        [TestMethod]
+        [Test]
         public void OrbitGetPosition_DirectionIsUpRightAndTimeIsEpoch_PositionIsAboveAndToRightOfCenter()
         {
             // ARRANGE
@@ -114,7 +114,7 @@ namespace Ptolemy.SolarSystem.Tests
             Assert.IsTrue(position.X > center.X && position.Y > center.Y);
         }
 
-        [TestMethod]
+        [Test]
         public void OrbitGetPosition_DirectionIsDownLeftAndTimeIsEpoch_PositionIsBelowAndToLeftOfCenter()
         {
             // ARRANGE
@@ -132,7 +132,7 @@ namespace Ptolemy.SolarSystem.Tests
             Assert.IsTrue(position.X < center.X && position.Y < center.Y);
         }
 
-        [TestMethod]
+        [Test]
         public void OrbitGetPosition_DirectionIsDownRightAndTimeIsEpoch_PositionIsBelowAndToRightOfCenter()
         {
             // ARRANGE

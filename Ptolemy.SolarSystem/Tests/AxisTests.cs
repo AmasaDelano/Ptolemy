@@ -1,12 +1,12 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Windows;
+﻿using System.Windows;
+using NUnit.Framework;
 
 namespace Ptolemy.SolarSystem.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class AxisTests
     {
-        [TestMethod]
+        [Test]
         public void AxisGetDirection_DirectionIsSet_DirectionReturnedIsCorrect()
         {
             // ARRANGE
@@ -20,7 +20,7 @@ namespace Ptolemy.SolarSystem.Tests
             Assert.AreEqual(originalDirection, direction);
         }
 
-        [TestMethod]
+        [Test]
         public void AxisGetEndPoint_DirectionIsUp_EndPointIsAboveOrigin()
         {
             // ARRANGE
@@ -34,7 +34,7 @@ namespace Ptolemy.SolarSystem.Tests
             Assert.IsTrue(endPoint.Y > origin.Y && (int)endPoint.X == (int)origin.X);
         }
 
-        [TestMethod]
+        [Test]
         public void AxisGetEndPoint_DirectionIsDown_EndPointIsBelowOrigin()
         {
             // ARRANGE
@@ -48,7 +48,7 @@ namespace Ptolemy.SolarSystem.Tests
             Assert.IsTrue(endPoint.Y < origin.Y && (int)endPoint.X == (int)origin.X);
         }
 
-        [TestMethod]
+        [Test]
         public void AxisGetEndPoint_DirectionIsLeft_EndPointIsToLeftOfOrigin()
         {
             // ARRANGE
@@ -62,7 +62,7 @@ namespace Ptolemy.SolarSystem.Tests
             Assert.IsTrue(endPoint.X < origin.X && (int)endPoint.Y == (int)origin.Y);
         }
 
-        [TestMethod]
+        [Test]
         public void AxisGetEndPoint_DirectionIsRight_EndPointIsToRightOfOrigin()
         {
             // ARRANGE
@@ -76,7 +76,7 @@ namespace Ptolemy.SolarSystem.Tests
             Assert.IsTrue(endPoint.X > origin.X && (int)endPoint.Y == (int)origin.Y);
         }
 
-        [TestMethod]
+        [Test]
         public void AxisGetEndPoint_DirectionIsUpLeft_EndPointIsAboveAndToLeftOfOrigin()
         {
             // ARRANGE
@@ -90,7 +90,7 @@ namespace Ptolemy.SolarSystem.Tests
             Assert.IsTrue(endPoint.Y > origin.Y && endPoint.X < origin.X);
         }
 
-        [TestMethod]
+        [Test]
         public void AxisGetEndPoint_DirectionIsUpRight_EndPointIsAboveAndToRightOfOrigin()
         {
             // ARRANGE
@@ -104,7 +104,7 @@ namespace Ptolemy.SolarSystem.Tests
             Assert.IsTrue(endPoint.Y > origin.Y && endPoint.X > origin.X);
         }
 
-        [TestMethod]
+        [Test]
         public void AxisGetEndPoint_DirectionIsDownLeft_EndPointIsBelowAndToLeftOfOrigin()
         {
             // ARRANGE
@@ -118,7 +118,7 @@ namespace Ptolemy.SolarSystem.Tests
             Assert.IsTrue(endPoint.Y < origin.Y && endPoint.X < origin.X);
         }
 
-        [TestMethod]
+        [Test]
         public void AxisGetEndPoint_DirectionIsDownRight_EndPointIsBelowAndToRightOfOrigin()
         {
             // ARRANGE

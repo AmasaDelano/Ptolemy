@@ -1,8 +1,8 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 
 namespace Ptolemy.SolarSystem.Tests
 {
-    [TestClass]
+    [TestFixture]
     class PtolemyMathTests
     {
     }
