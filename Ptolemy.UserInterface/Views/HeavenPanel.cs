@@ -4,7 +4,6 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using Ptolemy.UserInterface.Controllers;
-using Ptolemy.UserInterface.Enums;
 using Ptolemy.UserInterface.ViewModels;
 using Ptolemy.SolarSystem;
 
@@ -16,22 +15,26 @@ namespace Ptolemy.UserInterface.Views
     internal class HeavenPanel : Panel
     {
         #region Member Variables
+
         private readonly HeavensController _heavensController;
         private readonly List<PlanetController> _planetControllers;
 
         private readonly Pen _blackPen = new Pen(Color.Black, 2);
+
         #endregion
 
         #region Constructors
+
         public HeavenPanel()
         {
             _heavensController = new HeavensController();
-            _planetControllers = SelectList.Of<PlanetEnum>().Select(e => new PlanetController(e)).ToList();
+            _planetControllers = SelectList.Of<PlanetTypes>().Select(e => new PlanetController(e)).ToList();
             
             // Attach events
             SizeChanged += OnSizeChangedUpdateCenter;
             _heavensController.RegisterHasChangedEvent(this.Invalidate);
         }
+
         #endregion
 
         #region Overridden Methods
@@ -49,7 +52,8 @@ namespace Ptolemy.UserInterface.Views
             //BufferedGraphics bufferedGraphics = new BufferedGraphicsContext().Allocate(e.Graphics, new Rectangle((int)e.Graphics.ClipBounds.X, (int)e.Graphics.ClipBounds.Y, (int)e.Graphics.ClipBounds.Width, (int)e.Graphics.ClipBounds.Height));
 
             // Get planet data from the solar system
-            List<PlanetViewModel> planets = _planetControllers.Select(p => p.GetPlanetInfo())
+            List<PlanetViewModel> planets = _planetControllers
+                .Select(p => p.GetPlanetInfo())
                 .Where(p => p.ShowAll)
                 .ToList();
 
@@ -78,6 +82,7 @@ namespace Ptolemy.UserInterface.Views
                     radius: planet.RadiusOfEpicycle);
             }
         }
+
         private void DrawAxes(Graphics g, IEnumerable<PlanetViewModel> planets)
         {
             foreach (PlanetViewModel planet in planets.Where(p => p.ShowAxes))
@@ -103,6 +108,7 @@ namespace Ptolemy.UserInterface.Views
                     point2: planet.PlanetCenter);
             }
         }
+
         private void DrawPlanets(Graphics g, IEnumerable<PlanetViewModel> planets)
         {
             foreach (PlanetViewModel planet in planets.Where(p => p.ShowPlanet))
@@ -125,10 +131,12 @@ namespace Ptolemy.UserInterface.Views
                 width: radius * 2,
                 height: radius * 2);
         }
+
         private void DrawAxis(Graphics g, Point point1, Point point2)
         {
             g.DrawLine(pen: _blackPen, pt1: point1, pt2: point2);
         }
+
         #endregion
     }
 }

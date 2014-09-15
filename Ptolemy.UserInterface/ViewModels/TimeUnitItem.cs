@@ -7,14 +7,14 @@ namespace Ptolemy.UserInterface.ViewModels
     {
         #region Member Variables
 
-        private readonly TimeUnit _timeUnit;
+        private readonly TimeUnits _timeUnit;
         private int _quantity;
 
         #endregion
 
         #region Constructors
 
-        public TimeUnitItem(TimeUnit timeUnit, int quantity)
+        public TimeUnitItem(TimeUnits timeUnit, int quantity)
         {
             _timeUnit = timeUnit;
             _quantity = quantity;
@@ -29,7 +29,7 @@ namespace Ptolemy.UserInterface.ViewModels
             _quantity = quantity;
         }
 
-        public static implicit operator TimeUnit(TimeUnitItem timeUnitItem)
+        public static implicit operator TimeUnits(TimeUnitItem timeUnitItem)
         {
             return timeUnitItem._timeUnit;
         }
@@ -60,7 +60,7 @@ namespace Ptolemy.UserInterface.ViewModels
                 return false;
             }
 
-            return Equals((TimeUnitItem) obj);
+            return this.Equals((TimeUnitItem) obj);
         }
 
         protected bool Equals(TimeUnitItem other)

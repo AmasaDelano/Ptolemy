@@ -8,7 +8,7 @@ namespace Ptolemy.UserInterface.Models
         #region Member Variables
         
         private readonly SolarSystem.SolarSystem _solarSystem;
-        private readonly PlanetEnum _planetEnum;
+        private readonly PlanetTypes _planetType;
         private readonly HeavensModel _heavensModel;
 
         private bool _showAll = true;
@@ -23,10 +23,10 @@ namespace Ptolemy.UserInterface.Models
 
         #region Constructors
 
-        public PlanetModel(SolarSystem.SolarSystem solarSystem, PlanetEnum planetEnum)
+        public PlanetModel(SolarSystem.SolarSystem solarSystem, PlanetTypes planetType)
         {
             _solarSystem = solarSystem;
-            _planetEnum = planetEnum;
+            _planetType = planetType;
 
             _planetColor = this.GetDefaultColor();
 
@@ -116,7 +116,7 @@ namespace Ptolemy.UserInterface.Models
 
         public string GetName()
         {
-            return _planetEnum.ToString();
+            return _planetType.ToString();
         }
 
         /// <summary>
@@ -126,7 +126,7 @@ namespace Ptolemy.UserInterface.Models
         public PlanetDrawingData GetPosition()
         {
             // Get raw data
-            PlanetPositionData rawData = _solarSystem.GetPlanetPositionData(_planetEnum);
+            PlanetPositionData rawData = _solarSystem.GetPlanetPositionData(planetType: _planetType);
 
             // Assign raw data to manipulatable variables
             System.Windows.Point deferentCenter = rawData.DeferentCenter;
@@ -162,6 +162,7 @@ namespace Ptolemy.UserInterface.Models
                 RadiusOfEpicycle = (int) radiusOfEpicycle
             };
         }
+
         #endregion
 
         #region Private Helpers
@@ -173,19 +174,19 @@ namespace Ptolemy.UserInterface.Models
 
         private Color GetDefaultColor()
         {
-            switch (_planetEnum)
+            switch (_planetType)
             {
-                case PlanetEnum.SunDeferent:
+                case PlanetTypes.SunDeferent:
                     return Color.Yellow;
-                case PlanetEnum.SunEpicycle:
+                case PlanetTypes.SunEpicycle:
                     return Color.Yellow;
-                case PlanetEnum.Venus:
+                case PlanetTypes.Venus:
                     return Color.Turquoise;
-                case PlanetEnum.Mars:
+                case PlanetTypes.Mars:
                     return Color.Red;
-                case PlanetEnum.Jupiter:
+                case PlanetTypes.Jupiter:
                     return Color.Orange;
-                case PlanetEnum.Saturn:
+                case PlanetTypes.Saturn:
                     return Color.SteelBlue;
                 default:
                     return Color.Black;

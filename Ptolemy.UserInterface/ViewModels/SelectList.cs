@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Ptolemy.UserInterface.Enums
+namespace Ptolemy.UserInterface.ViewModels
 {
     public static class SelectList
     {

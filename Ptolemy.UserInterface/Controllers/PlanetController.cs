@@ -15,9 +15,9 @@ namespace Ptolemy.UserInterface.Controllers
 
         #region Constructors
 
-        public PlanetController(PlanetEnum planetEnum)
+        public PlanetController(PlanetTypes planetType)
         {
-            _planetModel = ModelFactory.GetPlanetModel(planetEnum);
+            _planetModel = ModelFactory.GetPlanetModel(planetType);
         }
 
         public PlanetController(PlanetModel planetModel)

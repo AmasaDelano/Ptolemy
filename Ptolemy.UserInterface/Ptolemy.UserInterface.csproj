@@ -46,10 +46,10 @@
     <Compile Include="Tests\AnimationControllerTests.cs" />
     <Compile Include="Tests\HeavensControllerTests.cs" />
     <Compile Include="Models\AnimationModel.cs" />
-    <Compile Include="Enums\SelectList.cs" />
+    <Compile Include="ViewModels\SelectList.cs" />
     <Compile Include="Models\HeavensModel.cs" />
     <Compile Include="Models\PlanetModel.cs" />
-    <Compile Include="Enums\TimeUnit.cs" />
+    <Compile Include="Enums\TimeUnits.cs" />
     <Compile Include="Models\ModelFactory.cs" />
     <Compile Include="Tests\PlanetControllerTests.cs">
       <SubType>Code</SubType>

@@ -2,7 +2,7 @@
 
 namespace Ptolemy.SolarSystem
 {
-    public enum PlanetEnum
+    public enum PlanetTypes
     {
         [Description("Sun (Deferent)")]
         SunDeferent = 1,

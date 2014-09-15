@@ -13,7 +13,7 @@ namespace Ptolemy.UserInterface.Tests
         public void PlanetController_SetColor_GetColorIsSameColor()
         {
             // ARRANGE
-            PlanetModel planetModel = new PlanetModel(new SolarSystem.SolarSystem(), PlanetEnum.Venus);
+            PlanetModel planetModel = new PlanetModel(new SolarSystem.SolarSystem(), PlanetTypes.Venus);
             PlanetController planetController = new PlanetController(planetModel);
             Color colorToSet = Color.Tomato;
 
@@ -28,7 +28,7 @@ namespace Ptolemy.UserInterface.Tests
         public void PlanetController_SetZoom_GetZoomIsSameZoom()
         {
             // ARRANGE
-            PlanetModel planetModel = new PlanetModel(new SolarSystem.SolarSystem(), PlanetEnum.Venus);
+            PlanetModel planetModel = new PlanetModel(new SolarSystem.SolarSystem(), PlanetTypes.SunDeferent);
             PlanetController planetController = new PlanetController(planetModel);
             const double zoomToSet = 3;
 
@@ -43,7 +43,7 @@ namespace Ptolemy.UserInterface.Tests
         public void PlanetController_SetPlanetSize_GetPlanetSizeIsSamePlanetSize()
         {
             // ARRANGE
-            PlanetModel planetModel = new PlanetModel(new SolarSystem.SolarSystem(), PlanetEnum.Venus);
+            PlanetModel planetModel = new PlanetModel(new SolarSystem.SolarSystem(), PlanetTypes.Jupiter);
             PlanetController planetController = new PlanetController(planetModel);
             const double sizeToSet = 1;
 
@@ -58,7 +58,7 @@ namespace Ptolemy.UserInterface.Tests
         public void PlanetController_SetShowAll_GetShowAllIsSameShowAll()
         {
             // ARRANGE
-            PlanetModel planetModel = new PlanetModel(new SolarSystem.SolarSystem(), PlanetEnum.Venus);
+            PlanetModel planetModel = new PlanetModel(new SolarSystem.SolarSystem(), PlanetTypes.Saturn);
             PlanetController planetController = new PlanetController(planetModel);
             const bool showAllToSet = true;
 
@@ -73,7 +73,7 @@ namespace Ptolemy.UserInterface.Tests
         public void PlanetController_SetShowOrbits_GetShowOrbitsIsSameShowOrbits()
         {
             // ARRANGE
-            PlanetModel planetModel = new PlanetModel(new SolarSystem.SolarSystem(), PlanetEnum.Venus);
+            PlanetModel planetModel = new PlanetModel(new SolarSystem.SolarSystem(), PlanetTypes.SunEpicycle);
             PlanetController planetController = new PlanetController(planetModel);
             const bool showOrbitsToSet = true;
 
@@ -88,7 +88,7 @@ namespace Ptolemy.UserInterface.Tests
         public void PlanetController_SetShowAxes_GetShowAxesIsSameShowAxes()
         {
             // ARRANGE
-            PlanetModel planetModel = new PlanetModel(new SolarSystem.SolarSystem(), PlanetEnum.Venus);
+            PlanetModel planetModel = new PlanetModel(new SolarSystem.SolarSystem(), PlanetTypes.Mars);
             PlanetController planetController = new PlanetController(planetModel);
             const bool showAxesToSet = true;
 
@@ -103,7 +103,7 @@ namespace Ptolemy.UserInterface.Tests
         public void PlanetController_SetShowPlanet_GetShowPlanetIsSameShowShowPlanet()
         {
             // ARRANGE
-            PlanetModel planetModel = new PlanetModel(new SolarSystem.SolarSystem(), PlanetEnum.Venus);
+            PlanetModel planetModel = new PlanetModel(new SolarSystem.SolarSystem(), PlanetTypes.Venus);
             PlanetController planetController = new PlanetController(planetModel);
             const bool showPlanetToSet = true;
 

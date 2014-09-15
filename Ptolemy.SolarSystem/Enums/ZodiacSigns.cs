@@ -1,6 +1,6 @@
 ﻿namespace Ptolemy.SolarSystem
 {
-    public enum ZodiacSign
+    public enum ZodiacSigns
     {
         Aries = 0,
         Taurus = 30,

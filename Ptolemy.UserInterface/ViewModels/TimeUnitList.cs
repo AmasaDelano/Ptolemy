@@ -9,7 +9,7 @@ namespace Ptolemy.UserInterface.ViewModels
 
         internal TimeUnitList(int quantity)
         {
-            foreach (TimeUnit timeUnit in SelectList.Of<TimeUnit>())
+            foreach (TimeUnits timeUnit in SelectList.Of<TimeUnits>())
             {
                 this.Items.Add(new TimeUnitItem(timeUnit, quantity));
             }

@@ -3,7 +3,7 @@
     /// <summary>
     /// Enum whose value is the number of seconds per unit.
     /// </summary>
-    internal enum TimeUnit : int
+    internal enum TimeUnits
     {
         Second = 1,
         /// <summary>

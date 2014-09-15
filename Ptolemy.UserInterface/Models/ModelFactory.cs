@@ -6,13 +6,16 @@ namespace Ptolemy.UserInterface.Models
     internal static class ModelFactory
     {
         #region Class Variables
+
         private static AnimationModel _animationModel;
         private static HeavensModel _heavensModel;
         private static SolarSystem.SolarSystem _solarSystem;
-        private static readonly Dictionary<PlanetEnum, PlanetModel> PlanetModels = new Dictionary<PlanetEnum, PlanetModel>();
+        private static readonly Dictionary<PlanetTypes, PlanetModel> _planetModels = new Dictionary<PlanetTypes, PlanetModel>();
+
         #endregion
 
         #region Public Interface
+
         public static AnimationModel GetAnimationModel()
         {
             if (_animationModel == null)
@@ -33,21 +36,23 @@ namespace Ptolemy.UserInterface.Models
             return _heavensModel;
         }
 
-        public static PlanetModel GetPlanetModel(PlanetEnum planetEnum)
+        public static PlanetModel GetPlanetModel(PlanetTypes planetType)
         {
-            if (PlanetModels.ContainsKey(planetEnum) && PlanetModels[planetEnum] != null)
+            if (_planetModels.ContainsKey(planetType) && _planetModels[planetType] != null)
             {
-                return PlanetModels[planetEnum];
+                return _planetModels[planetType];
             }
 
-            PlanetModel planetModel = new PlanetModel(ModelFactory.GetSolarSystem(), planetEnum);
-            PlanetModels[planetEnum] = planetModel;
+            PlanetModel planetModel = new PlanetModel(ModelFactory.GetSolarSystem(), planetType);
+            _planetModels[planetType] = planetModel;
 
             return planetModel;
         }
+
         #endregion
 
         #region Private Helpers
+
         private static SolarSystem.SolarSystem GetSolarSystem()
         {
             if (_solarSystem == null)
@@ -57,6 +62,7 @@ namespace Ptolemy.UserInterface.Models
 
             return _solarSystem;
         }
+
         #endregion
     }
 }

@@ -27,13 +27,13 @@ namespace Ptolemy.UserInterface.Models
         /// Time as it passes for us.
         /// </summary>
         private int _realTimeSteps = 1;
-        private TimeUnit _realTimeUnit = TimeUnit.Minute;
+        private TimeUnits _realTimeUnit = TimeUnits.Minute;
 
         /// <summary>
         /// Time as it passes for Ptolemy's heavens.
         /// </summary>
         private int _simulatedTimeSteps = 1;
-        private TimeUnit _simulatedTimeUnit = TimeUnit.Year;
+        private TimeUnits _simulatedTimeUnit = TimeUnits.Year;
 
         private DateTime _timeOfLastFrame;
 
@@ -97,22 +97,22 @@ namespace Ptolemy.UserInterface.Models
             return _simulatedTimeSteps;
         }
 
-        internal void SetRealTimeUnit(TimeUnit timeUnit)
+        internal void SetRealTimeUnit(TimeUnits timeUnit)
         {
             _realTimeUnit = timeUnit;
         }
 
-        internal TimeUnit GetRealTimeUnit()
+        internal TimeUnits GetRealTimeUnit()
         {
             return _realTimeUnit;
         }
 
-        internal void SetSimulatedTimeUnit(TimeUnit timeUnit)
+        internal void SetSimulatedTimeUnit(TimeUnits timeUnit)
         {
             _simulatedTimeUnit = timeUnit;
         }
 
-        internal TimeUnit GetSimulatedTimeUnit()
+        internal TimeUnits GetSimulatedTimeUnit()
         {
             return _simulatedTimeUnit;
         }
@@ -139,21 +139,19 @@ namespace Ptolemy.UserInterface.Models
         {
             _timer.AutoReset = false;
 
-            // Get a fraction of 1 (the delta) indicating how much of the expected movement to apply.
-            // Adjusts for discrepencies in Timer's measurement between fires.
+            // Get a fraction of 1 (the delta) indicating how much of the expected movement to apply. This will
+            // adjust for discrepencies in Timer's measurement between fires.
             long ticksElapsed = e.SignalTime.Ticks - _timeOfLastFrame.Ticks;
             double timerDelta = (((double) ticksElapsed) / TicksPerFrame);
 
             // Set the last frame time to be now
             _timeOfLastFrame = DateTime.Now;
             
-            // Move the simulation forward a percentage of the target number of simulated ticks in a frame
+            // Move the simulation forward the delta fraction of the target number of simulated ticks in a frame
             long ticksToAdvancePlanets = (long)(timerDelta * this.GetSimulatedTicksPerFrame());
-
-            // Move the animation forward
             _solarSystem.AdvanceCurrentTime(ticks: ticksToAdvancePlanets);
 
-            // Trigger the event
+            // Alert other parts of the program that the time was advanced
             this.OnTimeAdvanced();
 
             _timer.AutoReset = true;

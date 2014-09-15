@@ -5,12 +5,16 @@ namespace Ptolemy.SolarSystem
     public sealed class SolarSystem
     {
         #region Member Variables
-        private readonly Dictionary<PlanetEnum, Planet> _planets;
+
+        private readonly Dictionary<PlanetTypes, Planet> _planets;
+
         private PtolemyDateTime _currentTime;
         private double _directionOfAries;
+
         #endregion
 
         #region Constructors
+
         public SolarSystem()
         {
             _planets = GetRealPlanets();
@@ -21,6 +25,7 @@ namespace Ptolemy.SolarSystem
             // Aries is straight up.
             _directionOfAries = 0;
         }
+
         #endregion
 
         #region Public Interface
@@ -43,11 +48,11 @@ namespace Ptolemy.SolarSystem
         /// <summary>
         /// Gets raw position data: earth is at x=0,y=0, Aries is facing 0 degrees (straight up).
         /// </summary>
-        /// <param name="planetEnum"></param>
+        /// <param name="planetType"></param>
         /// <returns></returns>
-        public PlanetPositionData GetPlanetPositionData(PlanetEnum planetEnum)
+        public PlanetPositionData GetPlanetPositionData(PlanetTypes planetType)
         {
-            Planet planet = _planets[planetEnum];
+            Planet planet = _planets[planetType];
 
             if (planet == null)
             {
@@ -60,9 +65,11 @@ namespace Ptolemy.SolarSystem
             // Return raw position data
             return data;
         }
+
         #endregion
 
         #region Private Helpers
+
         private Planet GetDeferentSun()
         {
             return new Planet(
@@ -71,12 +78,13 @@ namespace Ptolemy.SolarSystem
                 returnsInMeanOrbit: 1,
                 returnsInAnomaly: 1,
                 returnsOfMeanSun: 1,
-                epochApogee: (int) ZodiacSign.Gemini + PtolemyMath.GetDecimalFromHexadecimal(5, 30), // H256, H257
-                epochMean: (int) ZodiacSign.Pisces + PtolemyMath.GetDecimalFromHexadecimal(0, 45), // H263
-                epochAnomaly: (int) ZodiacSign.Pisces + PtolemyMath.GetDecimalFromHexadecimal(3, 8), // H263
+                epochApogee: (int) ZodiacSigns.Gemini + PtolemyMath.GetDecimalFromHexadecimal(5, 30), // H256, H257
+                epochMean: (int) ZodiacSigns.Pisces + PtolemyMath.GetDecimalFromHexadecimal(0, 45), // H263
+                epochAnomaly: (int) ZodiacSigns.Pisces + PtolemyMath.GetDecimalFromHexadecimal(3, 8), // H263
                 usesEquant: false
                 );
         }
+
         private Planet GetEpicycleSun()
         {
             return new Planet(
@@ -85,12 +93,13 @@ namespace Ptolemy.SolarSystem
                 returnsInMeanOrbit: 1,
                 returnsInAnomaly: 1,
                 returnsOfMeanSun: 1,
-                epochApogee: (int) ZodiacSign.Gemini + PtolemyMath.GetDecimalFromHexadecimal(5, 30), // H256, H257
-                epochMean: (int) ZodiacSign.Pisces + PtolemyMath.GetDecimalFromHexadecimal(0, 45), // H263
-                epochAnomaly: (int) ZodiacSign.Pisces + PtolemyMath.GetDecimalFromHexadecimal(3, 8), // H263
+                epochApogee: (int) ZodiacSigns.Gemini + PtolemyMath.GetDecimalFromHexadecimal(5, 30), // H256, H257
+                epochMean: (int) ZodiacSigns.Pisces + PtolemyMath.GetDecimalFromHexadecimal(0, 45), // H263
+                epochAnomaly: (int) ZodiacSigns.Pisces + PtolemyMath.GetDecimalFromHexadecimal(3, 8), // H263
                 usesEquant: false
                 );
         }
+
         private Planet GetVenus()
         {
             return new Planet(
@@ -99,12 +108,13 @@ namespace Ptolemy.SolarSystem
                 returnsInMeanOrbit: 8 - (2.25 / PtolemyMath.DegreesInCircle),
                 returnsInAnomaly: 5, // H215: 5 epicyclic rotations to 8 mean sun rotations less 2;18 days
                 returnsOfMeanSun: PtolemyMath.GetRotationsFromMeanTime(years: 8, days: -2, sixtieths: 18),
-                epochApogee: (int) ZodiacSign.Taurus + PtolemyMath.GetDecimalFromHexadecimal(16, 10), // H316 & H250
-                epochMean: (int) ZodiacSign.Pisces + PtolemyMath.GetDecimalFromHexadecimal(0, 45),
+                epochApogee: (int) ZodiacSigns.Taurus + PtolemyMath.GetDecimalFromHexadecimal(16, 10), // H316 & H250
+                epochMean: (int) ZodiacSigns.Pisces + PtolemyMath.GetDecimalFromHexadecimal(0, 45),
                 epochAnomaly: PtolemyMath.GetDecimalFromHexadecimal(71, 7),
                 usesEquant: true
                 );
         }
+
         private Planet GetMars()
         {
             return new Planet(
@@ -113,12 +123,13 @@ namespace Ptolemy.SolarSystem
                 returnsInMeanOrbit: 32 + ((3 + (1/6)) / PtolemyMath.DegreesInCircle),
                 returnsInAnomaly: 37,
                 returnsOfMeanSun: PtolemyMath.GetRotationsFromMeanTime(years: 79, days: 3, sixtieths: 13), // H215: 37 returns in anomaly to 32 plus 3 1/6 degrees mean returns to 79 years plus 3;13 days 
-                epochApogee: (int) ZodiacSign.Cancer + PtolemyMath.GetDecimalFromHexadecimal(16, 40), // H250
-                epochMean: (int) ZodiacSign.Aries + PtolemyMath.GetDecimalFromHexadecimal(3, 32),
+                epochApogee: (int) ZodiacSigns.Cancer + PtolemyMath.GetDecimalFromHexadecimal(16, 40), // H250
+                epochMean: (int) ZodiacSigns.Aries + PtolemyMath.GetDecimalFromHexadecimal(3, 32),
                 epochAnomaly: PtolemyMath.GetDecimalFromHexadecimal(327, 13),
                 usesEquant: true
                 );
         }
+
         private Planet GetSaturn()
         {
             return new Planet(
@@ -127,12 +138,13 @@ namespace Ptolemy.SolarSystem
                 returnsInMeanOrbit: 2 + ((1 + (43/60)) / PtolemyMath.DegreesInCircle), // H215
                 returnsInAnomaly: 57, // H215: 57 returns in anomaly to 
                 returnsOfMeanSun: PtolemyMath.GetRotationsFromMeanTime(years: 59, days: 1, sixtieths: 45),  // H215
-                epochApogee: (int) ZodiacSign.Scorpio + PtolemyMath.GetDecimalFromHexadecimal(14, 10), // H250
-                epochMean: (int) ZodiacSign.Libra + PtolemyMath.GetDecimalFromHexadecimal(4, 41),
+                epochApogee: (int) ZodiacSigns.Scorpio + PtolemyMath.GetDecimalFromHexadecimal(14, 10), // H250
+                epochMean: (int) ZodiacSigns.Libra + PtolemyMath.GetDecimalFromHexadecimal(4, 41),
                 epochAnomaly: PtolemyMath.GetDecimalFromHexadecimal(34, 2),
                 usesEquant: true
                 );
         }
+
         private Planet GetJupiter()
         {
             return new Planet(
@@ -141,36 +153,38 @@ namespace Ptolemy.SolarSystem
                 returnsInMeanOrbit: 6 - ((4 + (1/6)) / PtolemyMath.DegreesInCircle), // H215
                 returnsInAnomaly: 65, // H215: 65 returns in anomaly to 
                 returnsOfMeanSun: PtolemyMath.GetRotationsFromMeanTime(years: 71, days: -4, sixtieths: 6), // H215
-                epochApogee: (int) ZodiacSign.Virgo + PtolemyMath.GetDecimalFromHexadecimal(2, 9), // H250
-                epochMean: (int) ZodiacSign.Libra + PtolemyMath.GetDecimalFromHexadecimal(4, 41),
+                epochApogee: (int) ZodiacSigns.Virgo + PtolemyMath.GetDecimalFromHexadecimal(2, 9), // H250
+                epochMean: (int) ZodiacSigns.Libra + PtolemyMath.GetDecimalFromHexadecimal(4, 41),
                 epochAnomaly: PtolemyMath.GetDecimalFromHexadecimal(146, 4),
                 usesEquant: true
                 );
         }
-        private Dictionary<PlanetEnum, Planet> GetRealPlanets()
+
+        private Dictionary<PlanetTypes, Planet> GetRealPlanets()
         {
-            Dictionary<PlanetEnum, Planet> planets = new Dictionary<PlanetEnum, Planet>();
+            Dictionary<PlanetTypes, Planet> planets = new Dictionary<PlanetTypes, Planet>();
 
             // Deferent Sun
-            planets.Add(PlanetEnum.SunDeferent, this.GetDeferentSun());
+            planets.Add(PlanetTypes.SunDeferent, this.GetDeferentSun());
 
             // Epicyclic Sun
-            planets.Add(PlanetEnum.SunEpicycle, this.GetEpicycleSun());
+            planets.Add(PlanetTypes.SunEpicycle, this.GetEpicycleSun());
 
             // Venus
-            planets.Add(PlanetEnum.Venus, this.GetVenus());
+            planets.Add(PlanetTypes.Venus, this.GetVenus());
 
             // Mars
-            planets.Add(PlanetEnum.Mars, this.GetMars());
+            planets.Add(PlanetTypes.Mars, this.GetMars());
 
             // Jupiter
-            planets.Add(PlanetEnum.Jupiter, this.GetJupiter());
+            planets.Add(PlanetTypes.Jupiter, this.GetJupiter());
 
             // Saturn
-            planets.Add(PlanetEnum.Saturn, this.GetSaturn());
+            planets.Add(PlanetTypes.Saturn, this.GetSaturn());
 
             return planets;
         }
+
         #endregion
     }
 }

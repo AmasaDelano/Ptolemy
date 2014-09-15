@@ -32,7 +32,7 @@ namespace Ptolemy.UserInterface.Controllers
             return new ViewModels.AnimationSpeedViewModel(_animationModel);
         }
 
-        public void SetRealTimeUnit(TimeUnit timeUnit)
+        public void SetRealTimeUnit(TimeUnits timeUnit)
         {
             _animationModel.SetRealTimeUnit(timeUnit);
         }
@@ -42,7 +42,7 @@ namespace Ptolemy.UserInterface.Controllers
             _animationModel.SetRealTimeSteps(timeStep);
         }
 
-        public void SetSimulatedTimeUnit(TimeUnit timeUnit)
+        public void SetSimulatedTimeUnit(TimeUnits timeUnit)
         {
             _animationModel.SetSimulatedTimeUnit(timeUnit);
         }

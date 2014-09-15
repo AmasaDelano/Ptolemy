@@ -18,6 +18,7 @@ namespace Ptolemy.UserInterface.Views
         #endregion
 
         #region Constructors
+
         public MainForm()
         {
             _animationController = new AnimationController();
@@ -25,6 +26,7 @@ namespace Ptolemy.UserInterface.Views
 
             InitializeComponent();
         }
+
         #endregion
 
         #region Events
@@ -36,6 +38,9 @@ namespace Ptolemy.UserInterface.Views
 
             // Set up animation controls
             this.SetUpAnimationControls();
+
+            // Set up the current time picker
+            this.SetUpCurrentTimePicker();
         }
 
         private void _startButton_Click(object sender, EventArgs e)
@@ -46,13 +51,13 @@ namespace Ptolemy.UserInterface.Views
 
         private void _simulatedUnitComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            TimeUnit simulatedUnit = (TimeUnitItem) _simulatedUnitComboBox.SelectedItem;
+            TimeUnits simulatedUnit = (TimeUnitItem) _simulatedUnitComboBox.SelectedItem;
             _animationController.SetSimulatedTimeUnit(simulatedUnit);
         }
 
         private void _realUnitsComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            TimeUnit realUnit = (TimeUnitItem) _realUnitsComboBox.SelectedItem;
+            TimeUnits realUnit = (TimeUnitItem) _realUnitsComboBox.SelectedItem;
             _animationController.SetRealTimeUnit(realUnit);
         }
         
@@ -90,7 +95,7 @@ namespace Ptolemy.UserInterface.Views
 
         private void SetUpPlanetDisplayTabs()
         {
-            TabPage[] planetTabPages = SelectList.Of<PlanetEnum>()
+            TabPage[] planetTabPages = SelectList.Of<PlanetTypes>()
                 .Select(e => new PlanetController(e))
                 .Select(e =>
                 {
@@ -115,9 +120,9 @@ namespace Ptolemy.UserInterface.Views
             // Get speed info
             AnimationSpeedViewModel speedInfo = _animationController.GetAnimationSpeedInfo();
 
-            // Hacky solution - not happy with it, but it preserves the values of speed info
-            TimeUnit realTimeUnit = speedInfo.RealTimeUnit;
-            TimeUnit simulatedTimeUnit = speedInfo.SimulatedTimeUnit;
+            // Hacky solution - not happy with it, but preserves the values of speed info
+            TimeUnits realTimeUnit = speedInfo.RealTimeUnit;
+            TimeUnits simulatedTimeUnit = speedInfo.SimulatedTimeUnit;
 
             // Bind enums to drop downs
             _simulatedUnitComboBox.DataSource = new TimeUnitList(quantity: speedInfo.RealTimeSteps);
@@ -128,6 +133,20 @@ namespace Ptolemy.UserInterface.Views
             _simulatedUnitComboBox.SelectedItem = simulatedTimeUnit;
             _realStepsNumericUpDown.Value = speedInfo.SimulatedTimeSteps;
             _realUnitsComboBox.SelectedItem = realTimeUnit;
+        }
+
+        private void SetUpCurrentTimePicker()
+        {
+            _heavensController.RegisterHasChangedEvent(UpdateCurrentTime);
+            this.UpdateCurrentTime();
+        }
+
+        private void UpdateCurrentTime()
+        {
+            // Get current time
+            PtolemyDateTime currentTime = _heavensController.GetCurrentTime();
+
+            // Set the current time on the appropriate control
         }
 
         #endregion

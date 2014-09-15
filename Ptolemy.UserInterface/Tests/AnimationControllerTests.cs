@@ -26,7 +26,7 @@ namespace Ptolemy.UserInterface.Tests
         {
             // ARRANGE
             AnimationController animationController = new AnimationController();
-            const TimeUnit realTimeUnit = TimeUnit.Day;
+            const TimeUnits realTimeUnit = TimeUnits.Day;
 
             // ACT
             animationController.SetRealTimeUnit(realTimeUnit);
@@ -54,7 +54,7 @@ namespace Ptolemy.UserInterface.Tests
         {
             // ARRANGE
             AnimationController animationController = new AnimationController();
-            const TimeUnit simulatedTimeUnit = TimeUnit.Week;
+            const TimeUnits simulatedTimeUnit = TimeUnits.Week;
 
             // ACT
             animationController.SetSimulatedTimeUnit(simulatedTimeUnit);

@@ -38,17 +38,17 @@ namespace Ptolemy.UserInterface.Views
             this._realStepsNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this._simulatedStepsNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this._startButton = new System.Windows.Forms.Button();
-            this.timeUnitListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._rightPanel = new System.Windows.Forms.Panel();
             this._planetDisplayTabs = new System.Windows.Forms.TabControl();
-            this._heavenPanel = new Ptolemy.UserInterface.Views.HeavenPanel();
             this._goToNowButton = new System.Windows.Forms.Button();
             this._goToEpochButton = new System.Windows.Forms.Button();
+            this._heavenPanel = new Ptolemy.UserInterface.Views.HeavenPanel();
+            this.timeUnitListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._speedBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._realStepsNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._simulatedStepsNumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.timeUnitListBindingSource)).BeginInit();
             this._rightPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.timeUnitListBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // _speedBox
@@ -166,10 +166,6 @@ namespace Ptolemy.UserInterface.Views
             this._startButton.UseVisualStyleBackColor = true;
             this._startButton.Click += new System.EventHandler(this._startButton_Click);
             // 
-            // timeUnitListBindingSource
-            // 
-            this.timeUnitListBindingSource.DataSource = typeof(Ptolemy.UserInterface.ViewModels.TimeUnitList);
-            // 
             // _rightPanel
             // 
             this._rightPanel.Controls.Add(this._goToEpochButton);
@@ -192,15 +188,6 @@ namespace Ptolemy.UserInterface.Views
             this._planetDisplayTabs.Size = new System.Drawing.Size(196, 361);
             this._planetDisplayTabs.TabIndex = 0;
             // 
-            // _heavenPanel
-            // 
-            this._heavenPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._heavenPanel.Location = new System.Drawing.Point(0, 0);
-            this._heavenPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this._heavenPanel.Name = "_heavenPanel";
-            this._heavenPanel.Size = new System.Drawing.Size(845, 692);
-            this._heavenPanel.TabIndex = 0;
-            // 
             // _goToNowButton
             // 
             this._goToNowButton.Location = new System.Drawing.Point(54, 564);
@@ -221,6 +208,19 @@ namespace Ptolemy.UserInterface.Views
             this._goToEpochButton.UseVisualStyleBackColor = true;
             this._goToEpochButton.Click += new System.EventHandler(this._goToEpochButton_Click);
             // 
+            // _heavenPanel
+            // 
+            this._heavenPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._heavenPanel.Location = new System.Drawing.Point(0, 0);
+            this._heavenPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this._heavenPanel.Name = "_heavenPanel";
+            this._heavenPanel.Size = new System.Drawing.Size(845, 692);
+            this._heavenPanel.TabIndex = 0;
+            // 
+            // timeUnitListBindingSource
+            // 
+            this.timeUnitListBindingSource.DataSource = typeof(Ptolemy.UserInterface.ViewModels.TimeUnitList);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -238,8 +238,8 @@ namespace Ptolemy.UserInterface.Views
             this._speedBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this._realStepsNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._simulatedStepsNumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.timeUnitListBindingSource)).EndInit();
             this._rightPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.timeUnitListBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

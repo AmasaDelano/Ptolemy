@@ -7,7 +7,7 @@ namespace Ptolemy.UserInterface.ViewModels
     {
         #region Member Variables
 
-        private AnimationModel _animationModel;
+        private readonly AnimationModel _animationModel;
 
         #endregion
 
@@ -32,12 +32,12 @@ namespace Ptolemy.UserInterface.ViewModels
             get { return _animationModel.GetSimulatedTimeSteps(); }
         }
 
-        internal TimeUnit RealTimeUnit
+        internal TimeUnits RealTimeUnit
         {
             get { return _animationModel.GetRealTimeUnit(); }
         }
 
-        internal TimeUnit SimulatedTimeUnit
+        internal TimeUnits SimulatedTimeUnit
         {
             get { return _animationModel.GetSimulatedTimeUnit(); }
         }
